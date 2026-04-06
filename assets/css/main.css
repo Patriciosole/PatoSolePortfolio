@@ -1,0 +1,284 @@
+/*
+ * FILE INDEX
+ * ----------
+ * 1. Tailwind Directives & Imports
+ * 2. Custom Properties (Variables)
+ * 3. Base Styles (Reset + Typography)
+ * 4. Layout (Containers, Grid)
+ * 5. Components (Buttons, Cards, Forms, Navigation)
+ * 6. Utilities (Animations, Helpers)
+ * 7. Page-Specific Styles
+ */
+
+/* ===== 1. Tailwind Directives & Imports ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 2. Custom Properties ===== */
+:root {
+  /* Brand Colors */
+  --color-brand-blue: #4479CE;
+  --color-brand-navy: #0f172a;
+
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-900: #0f172a;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-padding-y: 6rem;
+  --container-max-width: 80rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* ===== 3. Base Styles ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-family-sans);
+  }
+
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Focus visible styles for keyboard navigation - WCAG 2.2 compliant */
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 4px;
+  }
+}
+
+/* ===== 4. Layout ===== */
+@layer components {
+  /* Container */
+  .container-main {
+    @apply mx-auto px-6;
+    max-width: var(--container-max-width);
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-24 px-6;
+  }
+
+  /* Grid layouts */
+  .grid-cards {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+
+  .grid-testimonials {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+}
+
+/* ===== 5. Components ===== */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center font-semibold transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-blue text-white px-6 py-2.5 rounded-md shadow-sm;
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-700;
+  }
+
+  .btn-large {
+    @apply btn bg-brand-blue text-white px-8 py-4 rounded-lg shadow-lg shadow-blue-200;
+  }
+
+  .btn-large:hover {
+    @apply bg-blue-700;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-xl transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-2xl;
+  }
+
+  .card-image {
+    @apply h-56 overflow-hidden;
+  }
+
+  .card-image img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+
+  .card:hover .card-image img {
+    @apply scale-105;
+  }
+
+  .card-content {
+    @apply p-8;
+  }
+
+  /* Testimonial Cards */
+  .testimonial-card {
+    @apply bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full;
+  }
+
+  /* Forms */
+  .form-input {
+    @apply w-full rounded-xl border-slate-200 transition-all;
+  }
+
+  .form-input:focus {
+    @apply border-brand-blue ring-brand-blue;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-slate-700 mb-2;
+  }
+
+  /* Navigation */
+  .nav-fixed {
+    @apply fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium transition-colors hover:text-brand-blue;
+  }
+
+  /* Tags */
+  .tag {
+    @apply px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded;
+  }
+}
+
+/* ===== 6. Utilities ===== */
+@layer utilities {
+  /* Brand colors as utilities */
+  .bg-brand-blue {
+    background-color: var(--color-brand-blue);
+  }
+
+  .text-brand-blue {
+    color: var(--color-brand-blue);
+  }
+
+  .bg-brand-navy {
+    background-color: var(--color-brand-navy);
+  }
+
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Screen reader only - WCAG compliant */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .sr-only.focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* ===== 7. Page-Specific Styles ===== */
+
+/* Hero Section */
+.hero-section {
+  @apply pt-40 pb-20;
+}
+
+.hero-title {
+  @apply text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-8;
+}
+
+.hero-text {
+  @apply text-lg md:text-xl text-slate-600 leading-relaxed;
+}
+
+/* Case Studies Section */
+.case-studies-section {
+  @apply py-24 px-6;
+  background-color: var(--color-brand-blue);
+}
+
+.case-studies-title {
+  @apply text-4xl md:text-5xl font-bold text-white mb-16;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  @apply py-24 px-6;
+  background-color: var(--color-slate-50);
+}
+
+/* Contact Section */
+.contact-section {
+  @apply py-24 px-6;
+}
+
+.contact-form-card {
+  @apply max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+.footer-section {
+  @apply py-12 px-6;
+  background-color: var(--color-brand-navy);
+  color: var(--color-white);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply hidden md:hidden bg-white border-t border-slate-100 px-6 py-4;
+}
+
+.mobile-menu.is-open {
+  @apply block;
+}

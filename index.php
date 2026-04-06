@@ -1,0 +1,356 @@
+<?php
+/**
+ * FILE INDEX
+ * ----------
+ * 1. Header includes (head, meta tags)
+ * 2. Navigation component
+ * 3. Hero Section (Bio)
+ * 4. Case Studies Section
+ * 5. Testimonials Section
+ * 6. Contact Section
+ * 7. Footer
+ */
+
+// Page metadata
+$pageTitle = 'Patricio Solé | UX/UI Designer Portfolio';
+$pageDescription = 'Portfolio of Patricio Solé, a UX/UI designer with over 20 years of experience crafting digital products.';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
+  <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue': '#4479CE',
+            'brand-navy': '#0f172a',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<?php include 'components/header.php'; ?>
+            <!-- ===== Hero Section (Bio) ===== -->
+    <header class="pt-40 pb-20 mx-auto px-6 max-w-7xl" id="bio">
+      <div class="max-w-4xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-8">Hi, I'm Patricio.</h1>
+        <div class="text-lg md:text-xl text-slate-600 leading-relaxed space-y-6">
+          <p>I'm a UX/UI designer with over 20 years of experience crafting digital products and interfaces.</p>
+          <p>
+            My background combines <strong>visual design</strong>, <strong>user experience</strong>, and <strong>front-end implementation</strong>, which allows me to bridge the gap between design and development. Throughout my career, I've worked on <strong>websites</strong>, <strong>digital campaigns</strong>, and <strong>SaaS platforms</strong>, designing experiences that balance <strong>aesthetics</strong>, <strong>usability</strong>, and <strong>real business goals</strong>.
+          </p>
+          <p>
+            In recent years I've focused on <strong>product design</strong> and <strong>data-driven interfaces</strong>, including dashboards, analytics tools, and AI-powered applications such as conversation analysis platforms for call centers.
+          </p>
+          <p>
+            I enjoy solving complex interface problems, simplifying information-heavy products, and designing systems that help users make better decisions, working remotely with global teams.
+          </p>
+        </div>
+        <div class="mt-12">
+          <a class="inline-flex items-center justify-center font-semibold transition-all duration-300 bg-brand-blue text-white px-8 py-4 rounded-lg shadow-lg shadow-blue-200 hover:bg-blue-700 space-x-2" href="#" download>
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Download CV</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Case Studies Section ===== -->
+    <section class="py-24 px-6 bg-brand-blue" id="case-studies" aria-labelledby="case-studies-heading">
+      <div class="mx-auto px-6 max-w-7xl">
+        <h2 id="case-studies-heading" class="text-4xl md:text-5xl font-bold text-white mb-16">Case Studies</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Case Study 1: Brumby -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <div class="h-56 overflow-hidden">
+              <img
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="assets/images/sections/case-studies/C1/brumby.jpg"
+                alt="Brumby Dashboard interface showing AI-powered call center analytics"
+              >
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-1">Brumby</h3>
+              <p class="text-slate-500 text-sm mb-4">AI-powered Call Center Analytics</p>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Led the <strong>product design</strong> from early concept and workflow discovery to <strong>UI design</strong> and the <strong>front-end implementation</strong> for this <strong>AI-powered</strong> platform that helps call center teams analyze and improve service quality.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">AI</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Dashboard</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">UX / UI</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Data Visualization</span>
+              </div>
+              <a class="text-brand-blue font-bold text-sm inline-flex items-center group" href="case-study.php">
+                See more <span class="ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Case Study 2: Toyota Viola -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <div class="h-56 overflow-hidden">
+              <img
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="assets/images/sections/case-studies/C2/toyota.jpg"
+                alt="Toyota Viola mobile interface showing car dealership website"
+              >
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-1">Toyota Viola</h3>
+              <p class="text-slate-500 text-sm mb-4">Official Toyota car dealership</p>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                <strong>Redesign</strong> and <strong>rebuild</strong> for the entire website and custom internal <strong>content management system</strong> to support vehicle sales, savings plans, service inquiries, and marketing campaigns.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Car Dealership</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Ecommerce</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Custom CMS</span>
+              </div>
+              <a class="text-brand-blue font-bold text-sm inline-flex items-center group" href="case-study-2.php">
+                See more <span class="ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Case Study 3: Brokers -->
+          <article class="bg-white rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
+            <div class="h-56 overflow-hidden">
+              <img
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="assets/images/sections/case-studies/C3/brokers.jpg"
+                alt="Brokers platform interface showing real estate valuation tool"
+              >
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-1">Brokers</h3>
+              <p class="text-slate-500 text-sm mb-4">Real Estate Valuation Platform</p>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                <strong>Design</strong> and <strong>development</strong> of a web platform that lets property owners instantly estimate their property's value using <strong>AI</strong>, while simultaneously gathering qualified <strong>leads</strong> for real estate brokers in the back-end.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">AI</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Front & Backend</span>
+                <span class="px-3 py-1 bg-slate-100 text-slate-500 text-xs uppercase tracking-wider font-bold rounded">Leads generation</span>
+              </div>
+              <a class="text-brand-blue font-bold text-sm inline-flex items-center group" href="case-study-3.php">
+                See more <span class="ml-1 group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials Section ===== -->
+    <section class="py-24 px-6 bg-slate-50" aria-labelledby="testimonials-heading">
+      <div class="mx-auto px-6 max-w-7xl">
+        <h2 id="testimonials-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16">Testimonials</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+          <!-- Testimonial 1 -->
+          <blockquote class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                class="w-12 h-12 rounded-full"
+                src="assets/images/testimonials/federico.jpg"
+                alt="Federico Nicolás Marinic profile photo"
+              >
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Federico Nicolás Marinic</h4>
+                <p class="text-slate-500 text-xs leading-tight">Engagement Mgmt Manager at Avature</p>
+              </div>
+            </div>
+            <p class="text-slate-600 italic text-sm leading-relaxed mb-8">
+              "I worked with Pato on several projects and can vouch for his work. He's a sharp designer who actually understands the technical side—he's as comfortable in Figma as he is handling Twig templates."
+            </p>
+            <footer class="mt-auto pt-4 border-t border-slate-50 text-xs text-slate-400 font-medium italic">
+              We worked together at <strong class="text-slate-500">Avature</strong>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 2 -->
+          <blockquote class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                class="w-12 h-12 rounded-full"
+                src="assets/images/testimonials/santiago.jpg"
+                alt="Santiago Eduardo Pellini profile photo"
+              >
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Santiago Eduardo Pellini</h4>
+                <p class="text-slate-500 text-xs leading-tight">Professional Product Owner at Zurich Insurance</p>
+              </div>
+            </div>
+            <p class="text-slate-600 italic text-sm leading-relaxed mb-8">
+              "Patricio is a great professional and a great person, always willing to learn and help. He is a very responsible person, committed to what he does, and always trying to add value within the promised timeframe."
+            </p>
+            <footer class="mt-auto pt-4 border-t border-slate-50 text-xs text-slate-400 font-medium italic">
+              We worked together at <strong class="text-slate-500">Virtualmind</strong>
+            </footer>
+          </blockquote>
+
+          <!-- Testimonial 3 -->
+          <blockquote class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+            <div class="flex items-center space-x-4 mb-6">
+              <img
+                class="w-12 h-12 rounded-full"
+                src="assets/images/testimonials/gustavo.jpg"
+                alt="Gustavo Rutgerson profile photo"
+              >
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Gustavo Rutgerson</h4>
+                <p class="text-slate-500 text-xs leading-tight">CX & Data Lover at Brumby AI</p>
+              </div>
+            </div>
+            <p class="text-slate-600 italic text-sm leading-relaxed mb-8">
+              "I am lucky to work with Pato on a very important project in my professional life... and it's lucky because his contribution is enormous, taking the UX/UI project to the next level!"
+            </p>
+            <footer class="mt-auto pt-4 border-t border-slate-50 text-xs text-slate-400 font-medium italic">
+              We worked together at <strong class="text-slate-500">Drewolf</strong>
+            </footer>
+          </blockquote>
+
+        </div>
+
+        <!-- Slider indicators (visual only) -->
+        <div class="flex justify-center items-center space-x-2" aria-hidden="true">
+          <div class="w-8 h-1 bg-slate-200 rounded-full"></div>
+          <div class="w-48 h-1 bg-brand-blue rounded-full"></div>
+          <div class="w-8 h-1 bg-slate-200 rounded-full"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section class="py-24 px-6" id="contact" aria-labelledby="contact-heading">
+      <div class="mx-auto px-6 max-w-7xl">
+        <h2 id="contact-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16">Contact</h2>
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12" style="box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);">
+          <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-8" novalidate>
+
+            <!-- Message Field -->
+            <div class="md:col-span-1">
+              <label class="block text-sm font-medium text-slate-700 mb-2" for="message">Message</label>
+              <textarea
+                class="w-full rounded-xl border-slate-200 transition-all focus:border-brand-blue focus:ring-brand-blue resize-none p-4 placeholder:text-slate-300"
+                id="message"
+                name="message"
+                rows="8"
+                placeholder="Let me know how I can help you ..."
+                aria-required="true"
+              ></textarea>
+            </div>
+
+            <!-- Email and Name Fields -->
+            <div class="flex flex-col space-y-8">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2" for="email">Email</label>
+                <input
+                  type="email"
+                  class="w-full rounded-xl border-slate-200 transition-all focus:border-brand-blue focus:ring-brand-blue h-14 px-4 placeholder:text-slate-300"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  aria-required="true"
+                >
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2" for="name">Name</label>
+                <input
+                  type="text"
+                  class="w-full rounded-xl border-slate-200 transition-all focus:border-brand-blue focus:ring-brand-blue h-14 px-4 placeholder:text-slate-300"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  aria-required="true"
+                >
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="inline-flex items-center justify-center font-semibold transition-all duration-300 bg-brand-blue text-white px-8 py-4 rounded-lg shadow-lg shadow-blue-200 hover:bg-blue-700 w-full space-x-2">
+                <svg class="h-5 w-5 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                <span>Send Message</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-12 px-6 bg-brand-navy text-white" role="contentinfo">
+    <div class="mx-auto px-6 max-w-7xl flex flex-col md:flex-row items-center justify-between">
+      <div class="mb-8 md:mb-0">
+        <h3 class="text-xl font-bold mb-3">Patricio Solé</h3>
+        <a class="text-slate-400 hover:text-white transition-colors flex items-center space-x-2 text-sm" href="mailto:patriciosole.web@gmail.com">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <span>patriciosole.web@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-8">
+        <!-- LinkedIn -->
+        <a class="flex items-center space-x-2 text-sm font-medium hover:text-brand-blue transition-colors group" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <div class="bg-slate-800 p-2 rounded-lg group-hover:bg-brand-blue transition-colors">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+            </svg>
+          </div>
+          <span>LinkedIn</span>
+        </a>
+
+        <!-- Behance -->
+        <a class="flex items-center space-x-2 text-sm font-medium hover:text-brand-blue transition-colors group" href="https://behance.net" target="_blank" rel="noopener noreferrer">
+          <div class="bg-slate-800 p-2 rounded-lg group-hover:bg-brand-blue transition-colors">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7.5 11c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2h-4v4h4zm-4 2v5h4c1.5 0 2.5-1 2.5-2.5s-1-2.5-2.5-2.5h-4zm9-7h6v-1.5h-6v1.5zm3 4c-3 0-3.5 2.5-3.5 4s.5 4 3.5 4c2 0 3.5-1.5 3.5-3.5h-2.5c0 1-.5 1.5-1 1.5s-1-.5-1-1.5h4.5c0-2.5-.5-5-3.5-5z"></path>
+            </svg>
+          </div>
+          <span>Behance</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  </main>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Custom Scripts -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
