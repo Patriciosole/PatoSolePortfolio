@@ -11,7 +11,7 @@
  */
 
 /* ===== 1. Tailwind Directives & Imports ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -35,7 +35,8 @@
   --color-slate-900: #0f172a;
 
   /* Typography */
-  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Lato', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Maven Pro', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
   --section-padding-y: 6rem;
@@ -63,6 +64,10 @@
   *:focus-visible {
     outline: 2px solid var(--color-brand-blue);
     outline-offset: 4px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
   }
 }
 

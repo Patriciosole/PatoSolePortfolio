@@ -26,6 +26,7 @@ $pageDescription = 'Portfolio of Patricio Solé, a UX/UI designer with over 20 y
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +39,8 @@ $pageDescription = 'Portfolio of Patricio Solé, a UX/UI designer with over 20 y
             'brand-navy': '#0f172a',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+            heading: ['Maven Pro', 'system-ui', '-apple-system', 'sans-serif'],
           },
         }
       }

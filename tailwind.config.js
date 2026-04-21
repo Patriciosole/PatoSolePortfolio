@@ -12,7 +12,8 @@ module.exports = {
         'brand-navy': '#0f172a',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Maven Pro', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },
