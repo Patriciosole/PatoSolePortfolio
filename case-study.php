@@ -10,8 +10,8 @@
   <!-- Preconnect to Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <!-- Google Fonts: Manrope & Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Lato & Maven Pro -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Tailwind Config -->
@@ -20,11 +20,24 @@
       theme: {
         extend: {
           colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
             'brand-blue': '#4479CE',
             'brand-navy': '#0f172a',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+            heading: ['Maven Pro', 'system-ui', '-apple-system', 'sans-serif'],
           },
         }
       }
@@ -80,78 +93,107 @@
 <body class="font-manrope bg-white text-slate-900 overflow-x-hidden">
   <?php include 'components/header.php'; ?>
   <!-- BEGIN: Hero Section -->
-  <section class="reveal bg-[#fdfcfb] pt-12 md:pt-20 border-b border-slate-100" aria-labelledby="hero-title">
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-      <div class="mb-12">
-        <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-2">Brumby</h1>
-        <p class="text-slate-500 text-lg md:text-xl font-medium tracking-tight">Product Designer • Call Center Analytics</p>
-      </div>
+  <section class="reveal bg-[#fdfcfb]" aria-labelledby="hero-title">
+    <div class="max-w-7xl mx-auto py-8">
+
       <!-- Hero Mockup Container -->
-      <div class="relative w-full overflow-hidden rounded-t-3xl shadow-2xl">
-        <img alt="Brumby Dashboard interface showing AI-powered call center analytics" class="w-full h-auto object-cover" src="assets/images/sections/case-studies/C1/brumby.jpg" />
+      <div class="relative w-full -mb-1 md:h-[450px] overflow-hidden shadow-2xl bg-cover bg-left md:bg-center bg-no-repeat flex items-center border-8 border-white rounded-xl" style="background-image: url('assets/images/sections/case-studies/C1/main.jpg');">
+        <div class="mb-6 mt-6 md:mt-0 md:mb-12 ml-12">
+          <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-2 drop-shadow-[0_0_15px_rgba(255,255,255,1)]">Brumby</h1>
+
+          <p class="text-lg text-slate-400 font-medium mb-8 leading-relaxed bg-white px-4 py-2 rounded-3xl shadow-sm border border-slate-50 mt-4 w-fit">
+            Product Design <span class="mx-2 text-slate-300">•</span> Call Center Analytics
+          </p>
+          <div class="flex flex-wrap gap-4 items-center">
+            <span class="px-4 py-1.5 bg-brand-100 text-brand-900 rounded-full text-xs font-bold tracking-wider uppercase">E-commerce</span>
+            <span class="px-4 py-1.5 bg-slate-200 text-slate-700 rounded-full text-xs font-bold tracking-wider uppercase">Custom CMS</span>
+            <span class="px-4 py-1.5 bg-slate-200 text-slate-700 rounded-full text-xs font-bold tracking-wider uppercase">Automotive</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <!-- END: Hero Section -->
   <!-- BEGIN: Tools Section -->
-  <section class="reveal py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-      <h3 class="text-slate-900 font-bold text-xl mb-8">Tools</h3>
-      <div class="flex flex-wrap gap-6 items-center">
-        <!-- Tool Item -->
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">FI</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">Figma</span>
+  <section class="reveal py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="tools-heading" class="sr-only">Tools Used</h2>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+        <!-- Figma -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-brand-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.265 0H24v10.735h-5.414a5.362 5.362 0 0 1-5.321-5.361V0ZM0 13.213v-.053a5.365 5.365 0 0 1 5.365-5.312h5.322v5.365H5.365A5.362 5.362 0 0 1 0 13.213Zm13.265 0h5.321a5.362 5.362 0 0 1 5.414 5.361v5.426H13.265v-10.787ZM5.365 13.213h5.322v5.365H5.365A5.362 5.362 0 0 1 0 13.265v-.053a5.365 5.365 0 0 1 5.365-5.312Z"/>
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Figma</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">RE</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">HTML</span>
+        <!-- HTML -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1.5 0h21l-1.91 21.563L11.977 24 3.409 21.563 1.5 0zm7.031 9.75l.232-2.717 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.454.744-8.147H9.078z"/>
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">HTML</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs font-bold">TY</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">CSS</span>
+        <!-- CSS -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1.5 0h21l-1.91 21.563L11.977 24 3.409 21.563 1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.059.002-.255 2.716h-6.669l.24 2.573h6.182l-.366 3.523-2.814.804-2.867-.81-.183-2.11H6.336l.33 4.172L12 19.352l5.337-1.455.744-8.146.02-.338H9.078l-.155-1.706h9.447l.22-2.622z"/>
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">CSS</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-xs font-bold border border-slate-200">PY</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">Tailwind</span>
+        <!-- PHP -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" class="fill-white text-[10px] font-bold">PHP</text>
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">PHP</span>
         </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-xs font-bold border border-slate-200">PY</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">GIT</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-xs font-bold border border-slate-200">PY</div>
-          <span class="text-[10px] uppercase font-bold text-slate-400">Apex Charts JS</span>
+        <!-- JavaScript -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" class="fill-white text-[10px] font-bold">JS</text>
+            </svg>
+          </div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">JavaScript</span>
         </div>
       </div>
     </div>
   </section>
   <!-- END: Tools Section -->
   <!-- BEGIN: Content Sections -->
-  <main class="max-w-7xl mx-auto px-6 md:px-8 py-16 space-y-24">
+  <main class="max-w-7xl mx-auto px-6 md:px-8 py-16 space-y-24 border-t border-neutral-200">
     <!-- My Role -->
     <section class="reveal">
       <h2 class="text-4xl font-extrabold text-slate-900 mb-8">My Role</h2>
-      <div class="p-8 md:p-12 bg-slate-50 rounded-3xl border border-slate-100">
+      <div class="p-8 md:p-12 bg-slate-50 rounded-3xl border border-neutral-200">
         <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
           <p>I worked as the UX/UI Designer and Front-end Designer for the project.</p>
           <p>My responsibilities included the entire design lifecycle, from initial research to front-end implementation.</p>
           <p class="font-bold">Responsibilities included:</p>
-          <ul class="list-disc pl-5 space-y-2">
-            <li>UX research and workflow discovery with stakeholders</li>
-            <li>Information architecture and product structure</li>
-            <li>Wireframing and interface design</li>
-            <li>Interaction design</li>
-            <li>UI design and visual system</li>
-            <li>Prototyping</li>
-            <li>Front-end layout implementation</li>
-            <li>Design handoff and collaboration with developers</li>
-          </ul>
-          <p class="font-bold mt-6">I worked closely with:</p>
-          <ul class="list-disc pl-5 space-y-2">
-            <li>1 Product Manager</li>
-            <li>3 Developers</li>
-          </ul>
+          <div class="grid md:grid-cols-2 gap-8">
+            <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
+              <li>UX research and workflow discovery with stakeholders</li>
+              <li>Information architecture and product structure</li>
+              <li>Wireframing and interface design</li>
+              <li>Interaction design</li>
+            </ul>
+            <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
+              <li>UI design and visual system</li>
+              <li>Prototyping</li>
+              <li>Front-end layout implementation</li>
+              <li>Design handoff and collaboration with developers</li>
+            </ul>
+          </div>
+
+          <p class="pt-4 border-t border-slate-200">Worked closely with: 1 Product Manager and 3 Developers.</p>
           <p>While development was handled by the engineering team, I delivered the HTML/CSS structure using Tailwind, which developers integrated into the React codebase.</p>
         </div>
       </div>
@@ -168,15 +210,27 @@
     <!-- Problem -->
     <section class="reveal">
       <h2 class="text-4xl font-extrabold text-slate-900 mb-8">Problem</h2>
-      <div class="p-8 md:p-12 bg-white rounded-3xl border border-slate-100 shadow-sm">
+      <div class="p-8 md:p-12 bg-slate-50 rounded-3xl border border-neutral-200">
         <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
           <p>Call center supervisors and QA auditors typically need to review large numbers of calls to assess agent performance and identify problematic interactions.</p>
-          <p>This process is often:</p>
-          <ul class="list-disc pl-5 space-y-2">
-            <li>manual</li>
-            <li>time-consuming</li>
-            <li>inconsistent</li>
-            <li>difficult to scale</li>
+          <p class="mb-6">This process is often:</p>
+          <ul class=" grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+
+            <li class="flex items-center gap-2 font-semibold text-slate-900">
+              <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> manual
+            </li>
+
+            <li class="flex items-center gap-2 font-semibold text-slate-900">
+              <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> time-consuming
+            </li>
+
+            <li class="flex items-center gap-2 font-semibold text-slate-900">
+              <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> inconsistent
+            </li>
+
+            <li class="flex items-center gap-2 font-semibold text-slate-900">
+              <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> difficult to scale
+            </li>
           </ul>
           <p>Supervisors must listen to entire calls to identify issues such as poor communication, long silences, or negative customer sentiment.</p>
           <p>Brumby addresses this challenge by using AI to automatically analyze calls and highlight key moments, emotional signals, and conversation dynamics.</p>
@@ -190,73 +244,64 @@
       <!-- Process Images -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div>
-          <img alt="Audio Player Page" class="rounded-xl shadow-md border border-slate-100 mb-4" src="assets/images/sections/case-studies/C1/brumby.jpg" />
-          <p class="text-slate-400 text-sm italic">Audio Player Page</p>
+          <img alt="Audio Player Page" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C1/DP1.jpg" />
+          <p class="text-slate-400 text-sm italic mt-2">Audio Player Page</p>
         </div>
         <div>
-          <img alt="BEM methodology" class="rounded-xl shadow-md border border-slate-100 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC47bBJ-qNfFo_iAOeoMiwr7TTxwUP_1Xvj-1aZVt_4RLzyFt2jbVKj0Gm9wn4VBH0Xl14sFs3xD70iXwWDf1rMPMM5QqrlnsSSuYFGSqC5s7iXkLRzmZLhYgYMJG8DoCAc1HhV4B2_IQwgMMID5A70075CwpbyF9OM9bw81mVDBxZFr3mbRk7hcVCPIM5qAgSK13lmUGnNPzXwxX63HUNqY_Yc41xa4KexkxSXoHEXR1eyH3C5cTs3IxkP3Q-by9jdbdlSRyatYZ6P" />
-          <p class="text-slate-400 text-sm italic">Use of BEM methodology in Figma layers naming.</p>
+          <img alt="BEM methodology" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C1/DP2.jpg" />
+          <p class="text-slate-400 text-sm italic mt-2">Use of BEM methodology in Figma layers naming.</p>
         </div>
       </div>
       <!-- Process Steps -->
-      <div class="space-y-10">
-        <!-- Step 1 -->
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold">1</div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-2">Discovery &amp; Research</h4>
-            <p class="text-slate-500">Stakeholder interviews and workflow analysis helped identify how supervisors and auditors currently evaluate calls.</p>
-          </div>
+      <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 py-12 border-y border-neutral-200">
+        <div class="space-y-4">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">1</div>
+          <h4 class="font-heading font-bold text-slate-900">Discovery &amp; Research</h4>
+          <p class="text-sm text-slate-500">Stakeholder interviews and workflow analysis helped identify how supervisors and auditors currently evaluate calls.</p>
         </div>
         <!-- Step 2 -->
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold">2</div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-2">UX Structure</h4>
-            <p class="text-slate-500">Information architecture and user flows were created to organize the product's main features</p>
-          </div>
+        <div class="space-y-4">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">2</div>
+          <h3 class="font-heading font-bold text-slate-900">UX Structure</h3>
+          <p class="text-sm text-slate-500">Information architecture and user flows were created to organize the product's main features</p>
         </div>
         <!-- Step 3 -->
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold">3</div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-2">Wireframing &amp; Prototyping</h4>
-            <p class="text-slate-500">Low-fidelity wireframes helped define layout structure and data hierarchy.</p>
-          </div>
+        <div class="space-y-4">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">3</div>
+          <h3 class="font-heading font-bold text-slate-900">Wireframing &amp; Prototyping</h3>
+          <p class="text-sm text-slate-500">Low-fidelity wireframes helped define layout structure and data hierarchy.</p>
         </div>
         <!-- Step 4 -->
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold">4</div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-2">UI Design &amp; Implementation</h4>
-            <p class="text-slate-500">High-fidelity designs were created in Figma to define the product's visual identity and interactions.</p>
-          </div>
+        <div class="space-y-4">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">4</div>
+          <h3 class="font-heading font-bold text-slate-900">UI Design &amp; Implementation</h4>
+            <p class="text-sm text-slate-500">High-fidelity designs were created in Figma to define the product's visual identity and interactions.</p>
         </div>
         <!-- Step 5 -->
-        <div class="flex gap-6">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold">5</div>
-          <div>
-            <h4 class="font-bold text-slate-900 mb-2">Front-end Implementation</h4>
-            <p class="text-slate-500">The UI was implemented using HTML, CSS, and Tailwind before being integrated into the React development environment.</p>
-          </div>
+        <div class="space-y-4">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">5</div>
+          <h3 class="font-heading font-bold text-slate-900">Front-end Implementation</h4>
+            <p class="text-sm text-slate-500">The UI was implemented using HTML, CSS, and Tailwind before being integrated into the React development environment.</p>
         </div>
+      </div>
+
       </div>
       <!-- More Process Images -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
         <div>
-          <img alt="Dashboard Page" class="rounded-xl shadow-md border border-slate-100 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhKreN2TRoFN8IaE_6aELn6q4hpcmhK_jWGmn7r2_2DMH7apbb1SrwaIyJg7BXgCMQN6As-1UjpNQkfvTUvERN86OGq1I6YrxOFpekPemIwt8GJUefmtRyF3dt7606OtHHvVo0A_K6H1g8k6ZFrh2_o8Vd4IvTeuJNptoX9jW_yPKF18ZMcIPYV8Bw6md-VeWT7Rm7_GsiGNHOaPT-oFMr8aUMYhKvz_pjb9zyJ4v6SRpYe_sxyUiXpWZnMxQvRb9J4rgu-5z7ojNz" />
-          <p class="text-slate-400 text-sm italic">Dashboard page</p>
+          <img alt="Dashboard Page" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C1/DP3.jpg" />
+          <p class="text-slate-400 text-sm italic mt-2">Dashboard page</p>
         </div>
         <div>
-          <img alt="Create User Form" class="rounded-xl shadow-md border border-slate-100 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUc8mTxmUFqelxPAnxNEcfJWfyXrkWb7w49EArorgekPTMA4IclRwyh2yzVrm2c7hSJ_gD8BXmLToVgoXsgkc0VUm8iFzHjuiPk2Y0C8KDiqLWaj6YP7li86rDdzOd_WenTqL5JVzlEuaM-usx0T0dqtBHgNmwkRZyK_1VY_AkLTd5itfvpfPSLeB_SRJ2iBGQTHerm2o8aDTZIleqGN357Lk2uLRB0ZymS-bk6vn30Gnjz7cf3aqUF1SaFmx0P-bV5gpYx0IZa123" />
-          <p class="text-slate-400 text-sm italic">Create User Form</p>
+          <img alt="Create User Form" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C1/DP4.jpg" />
+          <p class="text-slate-400 text-sm italic mt-2">Create User Form</p>
         </div>
       </div>
     </section>
     <!-- Solutions & Results -->
     <section class="reveal">
       <h2 class="text-4xl font-extrabold text-slate-900 mb-12">Solutions &amp; Results</h2>
-      <div class="p-8 md:p-16 bg-slate-50 rounded-3xl border border-slate-100">
+      <div class="bg-slate-50 p-8 md:p-16 rounded-2xl border border-slate-200 shadow-xl">
         <h3 class="text-2xl font-extrabold text-slate-900 mb-6">Results</h3>
         <p class="text-slate-500 mb-12 leading-relaxed max-w-4xl">
           The platform transformed how call center supervisors and QA auditors review customer interactions. By combining AI-driven conversation analysis with a clear and intuitive interface, Brumby makes it possible to quickly identify patterns in calls, evaluate agent performance, and detect issues that would otherwise require hours of manual listening.
@@ -267,36 +312,69 @@
           <!-- Key Features -->
           <div>
             <h4 class="text-xl font-bold text-brand-600 mb-6">Key Features</h4>
-            <ul class="space-y-6 text-slate-600">
+            <ul class="space-y-10 text-slate-600">
               <li>
-                <span class="font-bold text-slate-900">Call Analytics Dashboard:</span> The main dashboard allows supervisors to quickly review calls and identify key patterns across interactions. Users can explore:
-                <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-500">
-                  <li>emotional signals</li>
-                  <li>conversation dynamics</li>
-                  <li>silence detection</li>
-                  <li>interaction markers</li>
+                <p class="font-bold text-slate-900">Call Analytics Dashboard</p>
+                <p class="text-slate-500">The main dashboard allows supervisors to quickly review calls and identify key patterns across interactions. Users can explore:
+
+                <ul class="space-y-3 mt-3">
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>emotional signals
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>conversation dynamics
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>silence detection
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>interaction markers
+                  </li>
                 </ul>
               </li>
               <li>
-                <span class="font-bold text-slate-900">AI Call Player:</span> The custom audio player enables detailed analysis of conversations. Users can:
-                <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-500">
-                  <li>listen to calls</li>
-                  <li>follow synchronized transcripts</li>
-                  <li>identify emotional tone shifts</li>
-                  <li>detect silence moments</li>
-                  <li>review key interaction events</li>
+                <p class="font-bold text-slate-900">AI Call Player</p>
+                <p class="text-slate-500">The custom audio player enables detailed analysis of conversations. Users can:</p>
+
+                <ul class="space-y-3 mt-3">
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>listen to calls
+                  </li>
+
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>follow synchronized transcripts
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>identify emotional tone shifts
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>detect silence moments
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>review key interaction events
+                  </li>
                 </ul>
               </li>
               <li>
-                <span class="font-bold text-slate-900">Agent Evaluation System:</span> Supervisors and auditors can evaluate agents using structured forms directly linked to each call. This allows organizations to:
-                <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-500">
-                  <li>standardize evaluations</li>
-                  <li>track performance trends</li>
-                  <li>improve training programs</li>
+                <p class="font-bold text-slate-900">Agent Evaluation System:</p>
+                <p class="text-slate-500">Supervisors and auditors can evaluate agents using structured forms directly linked to each call. This allows organizations to:</p>
+                <ul class="space-y-3 mt-3">
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>standardize evaluations
+                  </li>
+
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>track performance trends
+                  </li>
+
+                  <li class="flex items-start gap-2 text-slate-600">
+                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>improve training programs
+                  </li>
                 </ul>
               </li>
               <li>
-                <span class="font-bold text-slate-900">Call Management and Search:</span> Users can easily browse and locate calls through a structured interface designed for efficient auditing workflows.
+                <p class="font-bold text-slate-900">Call Management and Search:</p>
+                <p class="text-slate-500">Users can easily browse and locate calls through a structured interface designed for efficient auditing workflows.
               </li>
             </ul>
           </div>
@@ -305,27 +383,36 @@
             <div>
               <h4 class="text-xl font-bold text-brand-600 mb-6">Impact</h4>
               <p class="text-slate-500 mb-4">Although the product is still early in its lifecycle, it was designed to support several measurable outcomes:</p>
-              <ul class="list-disc pl-5 space-y-1 text-slate-500">
-                <li>reduce the time required to audit calls</li>
-                <li>improve operational efficiency</li>
-                <li>increase service quality insights</li>
-                <li>enhance customer satisfaction through better agent performance</li>
+
+              <ul class="space-y-3 mt-3">
+                <li class="flex items-start gap-2 text-slate-600">
+                  <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>reduce the time required to audit calls
+                </li>
+                <li class="flex items-start gap-2 text-slate-600">
+                  <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>improve operational efficiency
+                </li>
+                <li class="flex items-start gap-2 text-slate-600">
+                  <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>increase service quality insights
+                </li>
+                <li class="flex items-start gap-2 text-slate-600">
+                  <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div>enhance customer satisfaction through better agent performance
+                </li>
               </ul>
             </div>
             <div>
               <h4 class="text-xl font-bold text-brand-600 mb-6">Users</h4>
               <p class="text-slate-500 mb-4">The primary users of the platform are:</p>
-              <div class="space-y-4">
+              <div class="space-y-6">
                 <div>
-                  <h5 class="font-bold text-slate-900">Call Center Supervisors</h5>
+                  <p class="font-bold text-slate-900">Call Center Supervisors</p>
                   <p class="text-slate-500">Responsible for monitoring service quality and agent performance.</p>
                 </div>
                 <div>
-                  <h5 class="font-bold text-slate-900">QA Auditors</h5>
+                  <p class="font-bold text-slate-900">QA Auditors</p>
                   <p class="text-slate-500">Professionals responsible for reviewing calls, evaluating operators, and ensuring quality standards are met.</p>
                 </div>
               </div>
-              <p class="text-slate-500 mt-6 italic font-medium">These users need tools that allow them to <span class="text-slate-900 font-bold">quickly identify problematic calls and evaluate agents efficiently.</span></p>
+              <p class="text-slate-500 mt-6 italic font-medium">These users need tools that allow them to <span class="text-slate-700 font-bold">quickly identify problematic calls and evaluate agents efficiently.</span></p>
             </div>
           </div>
         </div>
@@ -349,35 +436,34 @@
         </div>
       </div>
     </section>
-  </main>
-  <!-- END: Content Sections -->
-  <!-- BEGIN: Bottom Visual & Navigation -->
-  <section class="reveal w-full" aria-label="Project showcase">
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-      <div class="rounded-3xl overflow-hidden shadow-2xl mb-12">
-        <div class="relative h-[600px] w-full bg-slate-900">
-          <img alt="Brumby platform displayed on multiple devices showing responsive design" class="w-full h-full object-cover opacity-80" src="assets/images/sections/case-studies/C1/brumby.jpg" />
+
+    <!-- BEGIN: Bottom Visual & Navigation -->
+    <section class="reveal active" aria-label="Project showcase image">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal rounded-3xl overflow-hidden shadow-2xl border border-neutral-200">
+          <img alt="Brumby Dashboard interface showing AI-powered call center analytics" class="w-full h-auto object-cover" src="assets/images/sections/case-studies/C1/end.jpg">
         </div>
       </div>
-    </div>
-  </section>
-  <!-- END: Bottom Visual & Navigation -->
+    </section>
+    <!-- END: Bottom Visual & Navigation -->
+  </main>
+  <!-- END: Content Sections -->
   <!-- BEGIN: PaginationFooter -->
   <footer role="contentinfo">
     <div class="bg-slate-50 border-t border-slate-200 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-          <a class="group flex items-center gap-3 text-slate-500 hover:text-brand-500 transition-colors" href="case-study.php">
+          <a class="group flex items-center gap-3 text-slate-500 hover:text-brand-500 transition-colors" href="case-study-3.php">
             <svg class="h-5 w-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
-            <span class="font-bold text-sm">Previous Case Study (Brumby)</span>
+            <span class="font-bold text-sm">Previous Case Study (Brokers)</span>
           </a>
           <a class="px-8 py-3 bg-brand-blue text-white rounded-lg font-bold text-sm hover:bg-blue-700  transition-all shadow-md" href="index.php#case-studies">
             Back to Portfolio
           </a>
-          <a class="group flex items-center gap-3 text-slate-500 hover:text-brand-500 transition-colors" href="case-study-3.php">
-            <span class="font-bold text-sm">Next Case Study (Brokers)</span>
+          <a class="group flex items-center gap-3 text-slate-500 hover:text-brand-500 transition-colors" href="case-study-2.php">
+            <span class="font-bold text-sm">Next Case Study (Toyota Viola)</span>
             <svg class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>

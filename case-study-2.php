@@ -9,8 +9,8 @@
   <!-- Preconnect to Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <!-- Google Fonts: Manrope & Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Lato & Maven Pro -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Maven+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Tailwind Config -->
@@ -19,11 +19,24 @@
       theme: {
         extend: {
           colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
             'brand-blue': '#4479CE',
             'brand-navy': '#0f172a',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+            heading: ['Maven Pro', 'system-ui', '-apple-system', 'sans-serif'],
           },
         }
       }
@@ -70,14 +83,15 @@
 <body class="bg-white text-slate-800 font-sans antialiased">
   <?php include 'components/header.php'; ?>
   <!-- BEGIN: HeroSection -->
-  <section class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40 bg-slate-50" data-purpose="hero-section" aria-labelledby="hero-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <h1 id="hero-title" class="font-heading text-6xl md:text-7xl font-extrabold text-slate-900 mb-6">
-            Toyota Viola
-          </h1>
-          <p class="text-xl md:text-2xl text-slate-500 font-medium mb-8 leading-relaxed">
+  <section class="reveal bg-[#fdfcfb]" aria-labelledby="hero-title">
+    <div class="max-w-7xl mx-auto py-8">
+
+      <!-- Hero Mockup Container -->
+      <div class="relative w-full -mb-1 md:h-[450px] overflow-hidden shadow-2xl bg-cover bg-left md:bg-center bg-no-repeat flex items-center border-8 border-white rounded-xl" style="background-image: url('assets/images/sections/case-studies/C2/main.jpg');">
+        <div class="mb-6 mt-6 md:mt-0 md:mb-12 ml-12">
+          <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-2 drop-shadow-[0_0_15px_rgba(255,255,255,1)]">Toyota Viola</h1>
+
+          <p class="text-lg text-slate-400 font-medium mb-8 leading-relaxed bg-white px-4 py-2 rounded-3xl shadow-sm border border-slate-50 mt-4 w-fit">
             UX/UI Design <span class="mx-2 text-slate-300">•</span> Car Dealership & CMS
           </p>
           <div class="flex flex-wrap gap-4 items-center">
@@ -86,46 +100,60 @@
             <span class="px-4 py-1.5 bg-slate-200 text-slate-700 rounded-full text-xs font-bold tracking-wider uppercase">Automotive</span>
           </div>
         </div>
-        <div class="relative reveal" style="transition-delay: 200ms;">
-          <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
-            <img alt="Toyota Viola website showing the homepage with vehicle listings and modern interface" class="w-full h-auto" src="assets/images/sections/case-studies/C2/toyota.jpg" />
-          </div>
-          <!-- Decorative circle -->
-          <div class="absolute -top-12 -right-12 w-64 h-64 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70" aria-hidden="true"></div>
-        </div>
       </div>
+
     </div>
   </section>
   <!-- END: HeroSection -->
 
   <!-- BEGIN: ToolsSection -->
-  <section class="py-12 border-b border-slate-100" aria-labelledby="tools-heading">
+  <section class="reveal py-12" aria-labelledby="tools-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 id="tools-heading" class="sr-only">Tools Used</h2>
       <div class="flex flex-wrap justify-center gap-8 md:gap-16">
         <!-- Figma -->
         <div class="flex flex-col items-center gap-2 group">
-          <div class="w-12 h-12 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">FI</div>
+          <div class="w-12 h-12 rounded-full bg-brand-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.265 0H24v10.735h-5.414a5.362 5.362 0 0 1-5.321-5.361V0ZM0 13.213v-.053a5.365 5.365 0 0 1 5.365-5.312h5.322v5.365H5.365A5.362 5.362 0 0 1 0 13.213Zm13.265 0h5.321a5.362 5.362 0 0 1 5.414 5.361v5.426H13.265v-10.787ZM5.365 13.213h5.322v5.365H5.365A5.362 5.362 0 0 1 0 13.265v-.053a5.365 5.365 0 0 1 5.365-5.312Z"/>
+            </svg>
+          </div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Figma</span>
         </div>
         <!-- HTML -->
         <div class="flex flex-col items-center gap-2 group">
-          <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">HT</div>
+          <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1.5 0h21l-1.91 21.563L11.977 24 3.409 21.563 1.5 0zm7.031 9.75l.232-2.717 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.454.744-8.147H9.078z"/>
+            </svg>
+          </div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">HTML</span>
         </div>
         <!-- CSS -->
         <div class="flex flex-col items-center gap-2 group">
-          <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">CS</div>
+          <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1.5 0h21l-1.91 21.563L11.977 24 3.409 21.563 1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.059.002-.255 2.716h-6.669l.24 2.573h6.182l-.366 3.523-2.814.804-2.867-.81-.183-2.11H6.336l.33 4.172L12 19.352l5.337-1.455.744-8.146.02-.338H9.078l-.155-1.706h9.447l.22-2.622z"/>
+            </svg>
+          </div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">CSS</span>
         </div>
         <!-- PHP -->
         <div class="flex flex-col items-center gap-2 group">
-          <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">PH</div>
+          <div class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" class="fill-white text-[10px] font-bold">PHP</text>
+            </svg>
+          </div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">PHP</span>
         </div>
         <!-- JavaScript -->
         <div class="flex flex-col items-center gap-2 group">
-          <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">JS</div>
+          <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+              <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" class="fill-white text-[10px] font-bold">JS</text>
+            </svg>
+          </div>
           <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">JavaScript</span>
         </div>
       </div>
@@ -133,206 +161,218 @@
   </section>
   <!-- END: ToolsSection -->
 
-  <!-- BEGIN: MyRole -->
-  <section class="py-24 bg-white" data-purpose="role-section" aria-labelledby="role-heading">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal">
-        <h2 id="role-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-10">My Role</h2>
-        <div class="bg-slate-50 p-8 md:p-12 rounded-2xl border border-slate-100 leading-relaxed text-slate-600 space-y-6">
-          <p>I worked as the Lead UX/UI Designer and Front-end Developer for the Toyota Viola website redesign project. My responsibilities included the complete redesign and rebuild of both the public-facing website and the internal content management system.</p>
-          <div class="grid md:grid-cols-2 gap-8">
-            <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
-              <li>UX research and stakeholder interviews</li>
-              <li>Complete website redesign strategy</li>
-              <li>Custom CMS architecture design</li>
-              <li>E-commerce user flow optimization</li>
-            </ul>
-            <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
-              <li>UI design and component system</li>
-              <li>Front-end implementation (HTML/CSS/JS)</li>
-              <li>PHP backend integration</li>
-              <li>Training and handoff to client team</li>
-            </ul>
-          </div>
-          <p class="pt-4 border-t border-slate-200 text-sm">Worked closely with: 2 Project Managers, 1 Marketing Director, 4 Developers.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END: MyRole -->
-
-  <!-- BEGIN: BriefAndProblemSection -->
-  <section class="py-24 bg-slate-50" data-purpose="problem-section" aria-labelledby="brief-heading">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal space-y-12">
-        <div class="max-w-3xl">
-          <h2 id="brief-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-6">Brief & Context</h2>
-          <p class="text-lg text-slate-600 leading-relaxed">
-            Toyota Viola is an official Toyota car dealership with multiple locations. They needed a complete digital transformation of their online presence to support vehicle sales, savings plans, service inquiries, and marketing campaigns. The project involved redesigning and rebuilding the entire website and developing a custom content management system tailored to their specific business needs.
-          </p>
-        </div>
-        <div class="space-y-8">
-          <h2 class="font-heading text-4xl font-extrabold text-slate-900">Problem</h2>
-          <div class="bg-white p-8 md:p-12 rounded-2xl border border-slate-200 shadow-sm leading-relaxed text-slate-600">
-            <p class="mb-6">The existing website was outdated, not mobile-responsive, and lacked the functionality needed to support their growing online business. Key challenges included:</p>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <li class="flex items-center gap-2 font-semibold text-slate-900">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Non-responsive design
-              </li>
-              <li class="flex items-center gap-2 font-semibold text-slate-900">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Complex vehicle search
-              </li>
-              <li class="flex items-center gap-2 font-semibold text-slate-900">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Manual content updates
-              </li>
-              <li class="flex items-center gap-2 font-semibold text-slate-900">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> No savings plan calculator
-              </li>
-            </ul>
-            <p>The dealership needed a modern, responsive website with an intuitive CMS that would allow their marketing team to manage vehicle inventory, promotions, and content without technical assistance.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END: BriefAndProblemSection -->
-
-  <!-- BEGIN: DesignProcess -->
-  <section class="py-24 bg-white" data-purpose="process-section" aria-labelledby="process-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal mb-16">
-        <h2 id="process-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-12">Design Process</h2>
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-          <div class="space-y-4">
-            <img alt="Toyota Viola homepage design mockup showing vehicle listings and hero section" class="rounded-xl border border-slate-200 shadow-md w-full" src="assets/images/sections/case-studies/C2/toyota.jpg" />
-            <p class="text-xs font-semibold text-slate-400 italic">Homepage Design</p>
-          </div>
-          <div class="space-y-4">
-            <img alt="Custom CMS interface for managing vehicle inventory and content" class="rounded-xl border border-slate-200 shadow-md w-full" src="assets/images/sections/case-studies/C2/toyota.jpg" />
-            <p class="text-xs font-semibold text-slate-400 italic">Custom CMS Interface</p>
-          </div>
-        </div>
-        <div class="grid gap-10 lg:grid-cols-5 py-12 border-y border-slate-100">
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">1</div>
-            <h3 class="font-heading font-bold text-slate-900">Discovery</h3>
-            <p class="text-sm text-slate-500">Stakeholder interviews and analysis of dealership workflows to understand business requirements.</p>
-          </div>
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">2</div>
-            <h3 class="font-heading font-bold text-slate-900">UX Structure</h3>
-            <p class="text-sm text-slate-500">Information architecture for vehicle catalog, service booking, and savings plan modules.</p>
-          </div>
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">3</div>
-            <h3 class="font-heading font-bold text-slate-900">Wireframing</h3>
-            <p class="text-sm text-slate-500">Low-fidelity wireframes for vehicle search, detail pages, and CMS dashboard layouts.</p>
-          </div>
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">4</div>
-            <h3 class="font-heading font-bold text-slate-900">UI Design</h3>
-            <p class="text-sm text-slate-500">High-fidelity designs aligned with Toyota brand guidelines, creating a premium automotive feel.</p>
-          </div>
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">5</div>
-            <h3 class="font-heading font-bold text-slate-900">Development</h3>
-            <p class="text-sm text-slate-500">Front-end and back-end implementation with custom PHP CMS and responsive design.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END: DesignProcess -->
-
-  <!-- BEGIN: SolutionsResults -->
-  <section class="py-24 bg-slate-50" data-purpose="results-section" aria-labelledby="results-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal space-y-16">
-        <h2 id="results-heading" class="font-heading text-4xl font-extrabold text-slate-900">Solutions & Results</h2>
-        <div class="bg-white p-8 md:p-16 rounded-2xl border border-slate-200 shadow-xl">
-          <h3 class="font-heading text-2xl font-bold text-slate-900 mb-6">Results</h3>
-          <p class="text-slate-600 mb-12 max-w-4xl leading-relaxed">
-            The new Toyota Viola website transformed the dealership's digital presence. The responsive design improved mobile engagement significantly, while the custom CMS empowered the marketing team to manage content independently. The vehicle savings plan calculator became a key lead generation tool.
-          </p>
-          <div class="grid lg:grid-cols-2 gap-16">
-            <div class="space-y-10">
-              <div>
-                <h4 class="font-heading font-bold text-brand-500 uppercase tracking-widest text-xs mb-4">Key Features</h4>
-                <ul class="space-y-6">
-                  <li>
-                    <p class="font-bold text-slate-900 text-sm">Responsive Vehicle Catalog</p>
-                    <p class="text-sm text-slate-500">Advanced search and filtering for new and used vehicles with detailed specification pages.</p>
-                  </li>
-                  <li>
-                    <p class="font-bold text-slate-900 text-sm">Savings Plan Calculator</p>
-                    <p class="text-sm text-slate-500">Interactive tool allowing customers to calculate monthly payments and savings plan options.</p>
-                  </li>
-                  <li>
-                    <p class="font-bold text-slate-900 text-sm">Service Booking System</p>
-                    <p class="text-sm text-slate-500">Online appointment scheduling for maintenance and service inquiries.</p>
-                  </li>
-                </ul>
-              </div>
+  <main class="max-w-7xl mx-auto px-6 md:px-8 py-16 space-y-24 border-t border-neutral-200">
+    <!-- BEGIN: MyRole -->
+    <section class="reveal" data-purpose="role-section" aria-labelledby="role-heading">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal">
+          <h2 id="role-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-10">My Role</h2>
+          <div class="bg-slate-50 p-8 md:p-12 rounded-2xl border border-neutral-200 leading-relaxed text-slate-600 space-y-6">
+            <p>I worked as the Lead UX/UI Designer and Front-end Developer for the Toyota Viola website redesign project. My responsibilities included the complete redesign and rebuild of both the public-facing website and the internal content management system.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+              <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
+                <li>UX research and stakeholder interviews</li>
+                <li>Complete website redesign strategy</li>
+                <li>Custom CMS architecture design</li>
+                <li>E-commerce user flow optimization</li>
+              </ul>
+              <ul class="space-y-3 list-disc pl-5 marker:text-brand-500">
+                <li>UI design and component system</li>
+                <li>Front-end implementation (HTML/CSS/JS)</li>
+                <li>PHP backend integration</li>
+                <li>Training and handoff to client team</li>
+              </ul>
             </div>
-            <div class="space-y-10">
-              <div>
-                <h4 class="font-heading font-bold text-brand-500 uppercase tracking-widest text-xs mb-4">Impact</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-start gap-2 text-sm text-slate-600">
-                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 45% increase in mobile traffic
-                  </li>
-                  <li class="flex items-start gap-2 text-sm text-slate-600">
-                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 60% reduction in content update time
-                  </li>
-                  <li class="flex items-start gap-2 text-sm text-slate-600">
-                    <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 30% increase in online leads
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="font-heading font-bold text-brand-500 uppercase tracking-widest text-xs mb-4">Users</h4>
-                <p class="text-sm text-slate-600 mb-2 font-bold">Car Buyers</p>
-                <p class="text-sm text-slate-500 mb-4">Individuals and families looking for new or used Toyota vehicles.</p>
-                <p class="text-sm text-slate-600 mb-2 font-bold">Marketing Team</p>
-                <p class="text-sm text-slate-500">Internal users managing inventory, promotions, and content updates.</p>
-              </div>
-            </div>
+            <p class="pt-4 border-t border-slate-200">Worked closely with: 2 Project Managers, 1 Marketing Director, 4 Developers.</p>
           </div>
-          <div class="mt-20 pt-12 border-t border-slate-100">
-            <h4 class="text-center font-heading font-bold text-slate-900 mb-12">Key Metrics</h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="text-center">
-                <div class="text-5xl font-black text-brand-500 mb-2">45%</div>
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Mobile traffic increase</div>
-              </div>
-              <div class="text-center">
-                <div class="text-5xl font-black text-brand-500 mb-2">60%</div>
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Content update time reduction</div>
-              </div>
-              <div class="text-center">
-                <div class="text-5xl font-black text-brand-500 mb-2">30%</div>
-                <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Online leads increase</div>
-              </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: MyRole -->
+
+    <!-- BEGIN: BriefAndProblemSection -->
+    <section class="reveal" data-purpose="problem-section" aria-labelledby="brief-heading">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal space-y-12">
+          <div class="max-w-3xl">
+            <h2 id="brief-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-6">Brief & Context</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+              Toyota Viola is an official Toyota car dealership with multiple locations. They needed a complete digital transformation of their online presence to support vehicle sales, savings plans, service inquiries, and marketing campaigns. The project involved redesigning and rebuilding the entire website and developing a custom content management system tailored to their specific business needs.
+            </p>
+          </div>
+          <div class="space-y-8">
+            <h2 class="font-heading text-4xl font-extrabold text-slate-900">Problem</h2>
+            <div class="bg-slate-50 p-8 md:p-12 rounded-2xl border border-slate-200 shadow-sm leading-relaxed text-slate-600">
+              <p class="mb-6">The existing website was outdated, not mobile-responsive, and lacked the functionality needed to support their growing online business. Key challenges included:</p>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <li class="flex items-center gap-2 font-semibold text-slate-900">
+                  <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Non-responsive design
+                </li>
+                <li class="flex items-center gap-2 font-semibold text-slate-900">
+                  <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Complex vehicle search
+                </li>
+                <li class="flex items-center gap-2 font-semibold text-slate-900">
+                  <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> Manual content updates
+                </li>
+                <li class="flex items-center gap-2 font-semibold text-slate-900">
+                  <div class="w-1.5 h-1.5 rounded-full bg-brand-500" aria-hidden="true"></div> No savings plan calculator
+                </li>
+              </ul>
+              <p>The dealership needed a modern, responsive website with an intuitive CMS that would allow their marketing team to manage vehicle inventory, promotions, and content without technical assistance.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- END: SolutionsResults -->
+    </section>
+    <!-- END: BriefAndProblemSection -->
 
-  <!-- BEGIN: FullWidthImage -->
-  <section class="py-24 bg-white overflow-hidden" aria-label="Project showcase image">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="reveal rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-        <img alt="Toyota Viola website displayed on multiple devices showing responsive design" class="w-full object-cover" src="assets/images/sections/case-studies/C2/toyota.jpg" />
+    <!-- BEGIN: DesignProcess -->
+    <section class="reveal" data-purpose="process-section" aria-labelledby="process-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-16">
+          <h2 id="process-heading" class="font-heading text-4xl font-extrabold text-slate-900 mb-12">Design Process</h2>
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-4">
+              <img alt="Toyota Viola homepage design mockup showing vehicle listings and hero section" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C2/DP1.jpg" />
+              <p class="text-slate-400 text-sm italic mt-2">Login Screen.</p>
+            </div>
+            <div class="space-y-4">
+              <img alt="Custom CMS interface for managing vehicle inventory and content" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C2/DP2.jpg" />
+              <p class="text-slate-400 text-sm italic mt-2">Custom CMS Screen. This is the Accessories Manager Page.</p>
+            </div>
+          </div>
+          <div class="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 py-12 border-y border-neutral-200">
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">1</div>
+              <h3 class="font-heading font-bold text-slate-900">Discovery</h3>
+              <p class="text-sm text-slate-500">Stakeholder interviews and analysis of dealership workflows to understand business requirements.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">2</div>
+              <h3 class="font-heading font-bold text-slate-900">UX Structure</h3>
+              <p class="text-sm text-slate-500">Information architecture for vehicle catalog, service booking, and savings plan modules.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">3</div>
+              <h3 class="font-heading font-bold text-slate-900">Wireframing</h3>
+              <p class="text-sm text-slate-500">Low-fidelity wireframes for vehicle search, detail pages, and CMS dashboard layouts.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">4</div>
+              <h3 class="font-heading font-bold text-slate-900">UI Design</h3>
+              <p class="text-sm text-slate-500">High-fidelity designs aligned with Toyota brand guidelines, creating a premium automotive feel.</p>
+            </div>
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold" aria-hidden="true">5</div>
+              <h3 class="font-heading font-bold text-slate-900">Development</h3>
+              <p class="text-sm text-slate-500">Front-end and back-end implementation with custom PHP CMS and responsive design.</p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 my-12">
+            <div class="space-y-4">
+              <img alt="Toyota Viola homepage design mockup showing vehicle listings and hero section" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C2/DP3.jpg" />
+              <p class="text-slate-400 text-sm italic mt-2">Homepage Design</p>
+            </div>
+            <div class="space-y-4">
+              <img alt="Custom CMS interface for managing vehicle inventory and content" class="rounded-xl shadow-lg w-full border-8 border-white" src="assets/images/sections/case-studies/C2/DP4.jpg" />
+              <p class="text-slate-400 text-sm italic mt-2">Custom CMS Screen. This is the Accessories Catalogs Page.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- END: FullWidthImage -->
+    </section>
+    <!-- END: DesignProcess -->
+
+    <!-- BEGIN: SolutionsResults -->
+    <section class="reveal" data-purpose="results-section" aria-labelledby="results-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal space-y-16">
+          <h2 id="results-heading" class="font-heading text-4xl font-extrabold text-slate-900">Solutions & Results</h2>
+          <div class="bg-slate-50 p-8 md:p-16 rounded-2xl border border-slate-200 shadow-xl">
+            <h3 class="font-heading text-2xl font-bold text-slate-900 mb-6">Results</h3>
+            <p class="text-slate-600 mb-12 max-w-4xl leading-relaxed">
+              The new Toyota Viola website transformed the dealership's digital presence. The responsive design improved mobile engagement significantly, while the custom CMS empowered the marketing team to manage content independently. The vehicle savings plan calculator became a key lead generation tool.
+            </p>
+            <div class="grid lg:grid-cols-2 gap-16">
+              <div class="space-y-10">
+                <div>
+                  <h4 class="text-xl font-bold text-brand-600 mb-6">Key Features</h4>
+                  <ul class="space-y-6">
+                    <li>
+                      <p class="font-bold text-slate-900">Responsive Vehicle Catalog</p>
+                      <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Advanced search and filtering for new and used vehicles with detailed specification pages.</div>
+                    </li>
+                    <li>
+                      <p class="font-bold text-slate-900">Savings Plan Calculator</p>
+                      <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Interactive tool allowing customers to calculate monthly payments and savings plan options.</div>
+                    </li>
+                    <li>
+                      <p class="font-bold text-slate-900">Service Booking System</p>
+                      <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Online appointment scheduling for maintenance and service inquiries.</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="space-y-10">
+                <div>
+                  <h4 class="text-xl font-bold text-brand-600 mb-6">Impact</h4>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 45% increase in mobile traffic
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 60% reduction in content update time
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <div class="mt-1.5 w-1.5 h-1.5 bg-brand-500 rounded-full shrink-0" aria-hidden="true"></div> 30% increase in online leads
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="text-xl font-bold text-brand-600 mb-6">Users</h4>
+                  <p class="text-sm text-slate-600 mb-2 font-bold">Car Buyers</p>
+                  <p class="text-sm text-slate-500 mb-4">Individuals and families looking for new or used Toyota vehicles.</p>
+                  <p class="text-sm text-slate-600 mb-2 font-bold">Marketing Team</p>
+                  <p class="text-sm text-slate-500">Internal users managing inventory, promotions, and content updates.</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-20 pt-20 border-t border-slate-200 text-center">
+              <h4 class="text-xl font-extrabold text-slate-900 mb-12">Key Metrics</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                  <div class="text-5xl font-black text-brand-600 mb-2">45%</div>
+                  <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Mobile traffic increase</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-brand-600 mb-2">60%</div>
+                  <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Content update time reduction</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-brand-600 mb-2">30%</div>
+                  <div class="text-xs uppercase font-bold text-slate-400 tracking-wider">Online leads increase</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: SolutionsResults -->
+
+    <!-- BEGIN: FullWidthImage -->
+    <section class="reveal" aria-label="Project showcase image">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal rounded-3xl overflow-hidden shadow-2xl border border-neutral-200">
+          <img alt="Toyota Viola website displayed on multiple devices showing responsive design" class="w-full object-cover" src="assets/images/sections/case-studies/C2/end.jpg" />
+        </div>
+      </div>
+    </section>
+    <!-- END: FullWidthImage -->
   </main>
   <!-- END: Main Content -->
-
+  </main>
   <!-- BEGIN: PaginationFooter -->
   <footer role="contentinfo">
     <div class="bg-slate-50 border-t border-slate-200 py-12">
