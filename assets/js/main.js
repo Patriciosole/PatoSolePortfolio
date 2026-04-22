@@ -8,7 +8,7 @@
  * 5. Utility Functions
  */
 
-(function($) {
+(function ($) {
   'use strict';
 
   // ===== 1. Mobile Navigation Toggle =====
@@ -16,7 +16,7 @@
     var $mobileBtn = $('.mobile-menu-btn');
     var $mobileMenu = $('.mobile-menu');
 
-    $mobileBtn.on('click', function(e) {
+    $mobileBtn.on('click', function (e) {
       e.preventDefault();
       $mobileMenu.toggleClass('is-open');
 
@@ -26,7 +26,7 @@
     });
 
     // Close mobile menu when clicking on a link
-    $mobileMenu.find('a').on('click', function() {
+    $mobileMenu.find('a').on('click', function () {
       $mobileMenu.removeClass('is-open');
       $mobileBtn.attr('aria-expanded', 'false');
     });
@@ -34,7 +34,7 @@
 
   // ===== 2. Smooth Scroll for Anchor Links =====
   function initSmoothScroll() {
-    $('a[href^="#"]').on('click', function(e) {
+    $('a[href^="#"]').on('click', function (e) {
       var target = $(this.getAttribute('href'));
 
       if (target.length) {
@@ -57,7 +57,7 @@
 
     if (!$form.length) return;
 
-    $form.on('submit', function(e) {
+    $form.on('submit', function (e) {
       e.preventDefault();
 
       // Clear previous errors
@@ -96,7 +96,7 @@
       // Show errors or submit
       if (!isValid) {
         // Display errors
-        $.each(errors, function(index, error) {
+        $.each(errors, function (index, error) {
           var $field = $('#' + error.field);
           var $errorMsg = $('<div class="form-error text-red-500 text-sm mt-1"></div>')
             .text(error.message)
@@ -116,9 +116,9 @@
         $submitBtn.prop('disabled', true).html('Sending...');
 
         // Simulate AJAX submission
-        setTimeout(function() {
+        setTimeout(function () {
           // Show success message
-          var $successMsg = $('<div class="form-success bg-green-50 text-green-700 p-4 rounded-lg mt-4" role="status" aria-live="polite"></div>')
+          var $successMsg = $('<div class="form-success col-span-1 md:col-span-2 bg-green-50 text-green-700 p-4 rounded-lg mt-4 text-center" role="status" aria-live="polite"></div>')
             .html('<strong>Thank you!</strong> Your message has been sent successfully.');
 
           $form.append($successMsg);
@@ -138,8 +138,8 @@
 
     // Intersection Observer for triggering animations
     if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        $.each(entries, function(index, entry) {
+      var observer = new IntersectionObserver(function (entries) {
+        $.each(entries, function (index, entry) {
           if (entry.isIntersecting) {
             $(entry.target).addClass('is-visible');
             observer.unobserve(entry.target);
@@ -150,7 +150,7 @@
         rootMargin: '0px 0px -50px 0px'
       });
 
-      $animatedElements.each(function() {
+      $animatedElements.each(function () {
         // Initially hide elements
         $(this).css({ opacity: 0, transform: 'translateY(20px)' });
         observer.observe(this);
@@ -176,7 +176,7 @@
   }
 
   // ===== Initialize on Document Ready =====
-  $(document).ready(function() {
+  $(document).ready(function () {
     initMobileNav();
     initSmoothScroll();
     initContactForm();
