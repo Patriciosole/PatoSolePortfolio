@@ -36,6 +36,10 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- hCaptcha -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
   <!-- Reveal Animation Styles -->
   <style>
     @keyframes fadeInUp {
@@ -127,7 +131,8 @@
   <!-- ===== Case Studies Section ===== -->
   <section class="reveal py-24 px-6 bg-brand-blue" id="case-studies" aria-labelledby="case-studies-heading">
     <div class="mx-auto px-6 max-w-7xl">
-      <h2 id="case-studies-heading" class="text-4xl md:text-5xl font-bold text-white mb-16">Case Studies</h2>
+      <h2 id="case-studies-heading" class="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Case Studies
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Case Study 1: Brumby -->
@@ -230,7 +235,8 @@
   <!-- ===== Testimonials Section ===== -->
   <section class="reveal py-24 px-6 bg-slate-50" aria-labelledby="testimonials-heading">
     <div class="mx-auto px-6 max-w-7xl">
-      <h2 id="testimonials-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16">Testimonials</h2>
+      <h2 id="testimonials-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16 text-center">Testimonials
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
 
         <!-- Testimonial 1 -->
@@ -303,23 +309,17 @@
   </section>
 
   <!-- ===== Contact Section ===== -->
-  <section class="reveal py-24 px-6" id="contact" aria-labelledby="contact-heading">
-    <div class="mx-auto px-6 max-w-7xl">
-      <h2 id="contact-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16">Contact</h2>
+  <section class="py-24 px-6" id="contact" aria-labelledby="contact-heading">
+    <div class="mx-auto px-6 max-w-7xl reveal">
+      <h2 id="contact-heading" class="text-4xl md:text-5xl font-bold text-slate-900 mb-16 text-center">Contact</h2>
       <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12" style="box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);">
-        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-8" data-fs-form-id="xdayponk" data-hcaptcha>
-
-          <!-- Success/Error Messages -->
-          <div data-fs-success
-            class="col-span-1 md:col-span-2 bg-green-50 text-green-700 p-4 rounded-lg mt-4 text-center hidden"></div>
-          <div data-fs-error
-            class="col-span-1 md:col-span-2 bg-red-50 text-red-700 p-4 rounded-lg mt-4 text-center hidden"></div>
+        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-8" data-fs-form-id="xdayponk">
 
           <!-- Message Field -->
           <div class="md:col-span-1">
             <label class="block text-sm font-medium text-slate-700 mb-2" for="message">Message</label>
             <textarea
-              class="w-full rounded-xl border border-slate-200 transition-all focus:border-brand-blue focus:ring-brand-blue resize-none p-4 placeholder:text-slate-300"
+              class="w-full h-full rounded-xl border border-slate-200 transition-all focus:border-brand-blue focus:ring-brand-blue resize-none p-4 placeholder:text-slate-300"
               id="message" name="message" rows="8" placeholder="Let me know how I can help you ..." aria-required="true"
               data-fs-field></textarea>
             <span data-fs-error="message" class="text-red-500 text-sm mt-1 block"></span>
@@ -342,6 +342,9 @@
               <span data-fs-error="name" class="text-red-500 text-sm mt-1 block"></span>
             </div>
 
+            <!-- CAPTCHA -->
+            <div class="h-captcha" data-sitekey="17089918-bc36-4ab6-8692-310afb4274a0" style="min-height: 78px;"></div>
+
             <!-- Submit Button -->
             <button type="submit" data-fs-submit-btn
               class="inline-flex items-center justify-center font-semibold transition-all duration-300 bg-brand-blue text-white px-8 py-4 rounded-lg shadow-lg shadow-blue-200 hover:bg-blue-700 w-full space-x-2">
@@ -352,7 +355,13 @@
               <span>Send Message</span>
             </button>
           </div>
-          <div class="h-captcha" data-sitekey="17089918-bc36-4ab6-8692-310afb4274a0"></div>
+
+          <!-- Success/Error Messages -->
+          <div data-fs-success
+            class="col-span-1 md:col-span-2 bg-green-50 text-green-700 p-4 rounded-lg mt-4 text-center hidden"></div>
+          <div data-fs-error
+            class="col-span-1 md:col-span-2 bg-red-50 text-red-700 p-4 rounded-lg mt-4 text-center hidden"></div>
+
         </form>
       </div>
     </div>
@@ -369,12 +378,42 @@
   <!-- Formspree AJAX Library -->
   <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
-  <!-- hCaptcha (must load before Formspree) -->
-  <script src="https://js.hs-captcha.com/1.43.1/hcaptcha.js"></script>
-
   <script>
     window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#contact-form', formId: 'xdayponk' });
+    formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'xdayponk',
+      onSuccess: function (data) {
+        const $successMsg = $('[data-fs-success]');
+        if ($successMsg.length) {
+          $successMsg.html('Thank you for your message! I will get back to you soon.')
+            .removeClass('hidden')
+            .addClass('block');
+
+          // Opcional: Ocultar el mensaje después de unos segundos
+          setTimeout(() => {
+            $successMsg.addClass('hidden').removeClass('block').html('');
+          }, 5000); // Oculta después de 5 segundos
+        }
+        // Reinicia el formulario
+        $('#contact-form')[0].reset();
+        // Importante: Retorna false para evitar que Formspree muestre su mensaje de éxito predeterminado
+        return false;
+      },
+      onError: function (data) {
+        const $errorMsg = $('[data-fs-error]');
+        if ($errorMsg.length) {
+          // Personaliza tu mensaje de error aquí. Puedes usar 'data.errors' para detalles.
+          let errorMessage = 'There was an error sending your message. Please try again. Or write me to patriciosole.web@gmail.com';
+          if (data && data.errors && data.errors.length > 0) {
+            errorMessage = data.errors.map(err => err.message).join('<br>');
+          }
+          $errorMsg.html(errorMessage).removeClass('hidden').addClass('block');
+        }
+        // Importante: Retorna false para evitar que Formspree muestre su mensaje de error predeterminado
+        return false;
+      }
+    });
   </script>
 
   <!-- Custom Scripts -->

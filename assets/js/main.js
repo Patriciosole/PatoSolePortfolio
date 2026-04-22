@@ -58,16 +58,17 @@
     if (!$form.length) return;
 
     $form.on('submit', function (e) {
-      e.preventDefault();
 
       // Clear previous errors
       $('.form-error').remove();
-      $('.form-success').remove();
+      // Ocultar contenedores de mensajes y limpiar contenido para que no ocupen espacio
+      $('[data-fs-success], [data-fs-error]').addClass('hidden').removeClass('block').html('');
 
       // Get form values
       var name = $('#name').val().trim();
       var email = $('#email').val().trim();
       var message = $('#message').val().trim();
+      var hCaptchaResponse = $form.find('[name="h-captcha-response"]').val();
 
       var isValid = true;
       var errors = [];
@@ -93,11 +94,17 @@
         errors.push({ field: 'message', message: 'Please enter a message.' });
       }
 
+      // Validate hCaptcha
+      if (!hCaptchaResponse) {
+        isValid = false;
+        errors.push({ field: 'h-captcha', message: 'Please complete the captcha.' });
+      }
+
       // Show errors or submit
       if (!isValid) {
         // Display errors
         $.each(errors, function (index, error) {
-          var $field = $('#' + error.field);
+          var $field = error.field === 'h-captcha' ? $('.h-captcha') : $('#' + error.field);
           var $errorMsg = $('<div class="form-error text-red-500 text-sm mt-1"></div>')
             .text(error.message)
             .attr('role', 'alert');
@@ -106,28 +113,17 @@
           $field.attr('aria-invalid', 'true');
         });
 
-        // Focus first error field
-        $('#' + errors[0].field).focus();
-      } else {
-        // Form is valid - simulate submission
-        var $submitBtn = $form.find('button[type="submit"]');
-        var originalText = $submitBtn.html();
-
-        $submitBtn.prop('disabled', true).html('Sending...');
-
-        // Simulate AJAX submission
-        setTimeout(function () {
-          // Show success message
-          var $successMsg = $('<div class="form-success col-span-1 md:col-span-2 bg-green-50 text-green-700 p-4 rounded-lg mt-4 text-center" role="status" aria-live="polite"></div>')
-            .html('<strong>Thank you!</strong> Your message has been sent successfully.');
-
-          $form.append($successMsg);
-          $form[0].reset();
-          $submitBtn.prop('disabled', false).html(originalText);
-
-          // Focus success message for screen readers
-          $successMsg.attr('tabindex', '-1').focus();
-        }, 1000);
+        // Focus first error field (skip h-captcha to avoid double-click issues)
+        if (errors.length > 0) {
+          var firstErrorField = errors[0].field;
+          if (firstErrorField !== 'h-captcha') {
+            $('#' + firstErrorField).focus();
+          } else {
+            // Scroll to captcha if it's the first error
+            $('.h-captcha')[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+        e.preventDefault();
       }
     });
   }
