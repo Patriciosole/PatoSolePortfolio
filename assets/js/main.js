@@ -62,7 +62,7 @@
       // Clear previous errors
       $('.form-error').remove();
       // Ocultar contenedores de mensajes y limpiar contenido para que no ocupen espacio
-      $('[data-fs-success], [data-fs-error]').addClass('hidden').removeClass('block').html('');
+      $('[data-fs-success], [data-fs-error]').addClass('hidden').removeClass('block').removeAttr('data-fs-active').html('');
 
       // Get form values
       var name = $('#name').val().trim();
