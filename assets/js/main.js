@@ -128,6 +128,51 @@
     });
   }
 
+  // ===== 3.1. Formspree Submission Handling =====
+  function initFormspreeSubmission() {
+    // Initialize Formspree global function if not already present
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+
+    formspree('initForm', {
+      formElement: '#contact-form',
+      formId: 'xdayponk', // Ensure this matches your form's data-fs-form-id
+      onSuccess: function (data) {
+        const $successMsg = $('[data-fs-success]');
+        if ($successMsg.length) {
+          $successMsg.html('Thank you for your message! I will get back to you soon.')
+            .removeClass('hidden')
+            .addClass('block');
+
+          // Opcional: Ocultar el mensaje después de unos segundos
+          setTimeout(() => {
+            $successMsg.addClass('hidden').removeClass('block').removeAttr('data-fs-active').html('');
+          }, 5000); // Oculta después de 5 segundos
+        }
+        // Reinicia el formulario
+        $('#contact-form')[0].reset();
+        // Importante: Retorna false para evitar que Formspree muestre su mensaje de éxito predeterminado
+        return false;
+      },
+      onError: function (data) {
+        const $errorMsg = $('[data-fs-error]');
+        if ($errorMsg.length) {
+          // Personaliza tu mensaje de error aquí. Puedes usar 'data.errors' para detalles.
+          let errorMessage = 'There was an error sending your message. Please try again. Or write me to patriciosole.web@gmail.com';
+          if (data && data.errors && data.errors.length > 0) {
+            // Filter out hCaptcha errors if they are handled by client-side validation already
+            const nonCaptchaErrors = data.errors.filter(err => err.field !== 'h-captcha-response');
+            if (nonCaptchaErrors.length > 0) {
+              errorMessage = nonCaptchaErrors.map(err => err.message).join('<br>');
+            }
+          }
+          $errorMsg.html(errorMessage).removeClass('hidden').addClass('block');
+        }
+        // Importante: Retorna false para evitar que Formspree muestre su mensaje de error predeterminado
+        return false;
+      }
+    });
+  }
+
   // ===== 4. Scroll Animations (Fade In Up) =====
   function initScrollAnimations() {
     var $animatedElements = $('.fade-in-up');
@@ -157,6 +202,26 @@
     }
   }
 
+  // ===== 4.1. Reveal Animations (Intersection Observer) =====
+  function initRevealAnimations() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
+
   // ===== 5. Utility Functions =====
   function isValidEmail(email) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -177,6 +242,8 @@
     initSmoothScroll();
     initContactForm();
     initScrollAnimations();
+    initFormspreeSubmission(); // Initialize Formspree submission
+    initRevealAnimations(); // Initialize general reveal animations
     addAnimationStyles();
   });
 
