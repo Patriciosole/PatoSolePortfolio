@@ -13,22 +13,21 @@
 
   // ===== 1. Mobile Navigation Toggle =====
   function initMobileNav() {
-    var $mobileBtn = $('.mobile-menu-btn');
-    var $mobileMenu = $('.mobile-menu');
-
-    $mobileBtn.on('click', function (e) {
+    // Use event delegation for dynamically loaded components
+    $(document).on('click', '[aria-label="Toggle mobile menu"]', function (e) {
       e.preventDefault();
-      $mobileMenu.toggleClass('is-open');
+      var $mobileMenu = $('#mobile-menu');
+      $mobileMenu.toggleClass('hidden').toggleClass('block');
 
       // Toggle aria-expanded for accessibility
-      var isExpanded = $mobileMenu.hasClass('is-open');
+      var isExpanded = $mobileMenu.hasClass('block');
       $(this).attr('aria-expanded', isExpanded);
     });
 
     // Close mobile menu when clicking on a link
-    $mobileMenu.find('a').on('click', function () {
-      $mobileMenu.removeClass('is-open');
-      $mobileBtn.attr('aria-expanded', 'false');
+    $(document).on('click', '#mobile-menu a', function () {
+      $('#mobile-menu').addClass('hidden').removeClass('block');
+      $('[aria-label="Toggle mobile menu"]').attr('aria-expanded', 'false');
     });
   }
 
@@ -128,6 +127,32 @@
     });
   }
 
+  // ===== 3.2. Dynamic Component Loading =====
+  function initDynamicComponents() {
+    const headerContainer = document.getElementById('header-container');
+    const footerContainer = document.getElementById('footer-container');
+
+    if (headerContainer) {
+      const isCaseStudy = window.location.pathname.includes('case-study');
+      const headerUrl = isCaseStudy ? 'components/header-casestudy.html' : 'components/header.html';
+
+      fetch(headerUrl)
+        .then(response => response.text())
+        .then(html => { headerContainer.innerHTML = html; })
+        .catch(err => console.error('Error loading header:', err));
+    }
+
+    if (footerContainer) {
+      fetch('components/footer.html')
+        .then(response => response.text())
+        .then(html => { footerContainer.innerHTML = html; })
+        .catch(err => console.error('Error loading footer:', err));
+    }
+  }
+
+  // Store Formspree instance to avoid re-initialization
+  var formspreeInstance = null;
+
   // ===== 3.1. Formspree Submission Handling =====
   function initFormspreeSubmission() {
     // Initialize Formspree global function if not already present
@@ -173,78 +198,43 @@
     });
   }
 
-  // ===== 4. Scroll Animations (Fade In Up) =====
-  function initScrollAnimations() {
-    var $animatedElements = $('.fade-in-up');
-
-    // Intersection Observer for triggering animations
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        $.each(entries, function (index, entry) {
-          if (entry.isIntersecting) {
-            $(entry.target).addClass('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      $animatedElements.each(function () {
-        // Initially hide elements
-        $(this).css({ opacity: 0, transform: 'translateY(20px)' });
-        observer.observe(this);
-      });
-    } else {
-      // Fallback: show all elements
-      $animatedElements.addClass('is-visible');
-    }
-  }
-
-  // ===== 4.1. Reveal Animations (Intersection Observer) =====
-  function initRevealAnimations() {
+  // ===== 4. Unified Reveal Animations =====
+  function initObservers() {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '0px 0px -50px 0px',
       threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          // Handles both .reveal and .fade-in-up classes
+          const className = entry.target.classList.contains('reveal') ? 'active' : 'is-visible';
+          entry.target.classList.add(className);
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Select all elements that need scroll animations
+    const elements = document.querySelectorAll('.reveal, .fade-in-up');
+    elements.forEach(el => observer.observe(el));
   }
-
 
   // ===== 5. Utility Functions =====
   function isValidEmail(email) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
-
-  // Add CSS for animated elements when visible
-  function addAnimationStyles() {
-    $('<style>')
-      .prop('type', 'text/css')
-      .html('.fade-in-up.is-visible { opacity: 1 !important; transform: translateY(0) !important; transition: opacity 0.6s ease, transform 0.6s ease; }')
-      .appendTo('head');
-  }
-
   // ===== Initialize on Document Ready =====
   $(document).ready(function () {
+    initDynamicComponents();
     initMobileNav();
     initSmoothScroll();
     initContactForm();
-    initScrollAnimations();
     initFormspreeSubmission(); // Initialize Formspree submission
-    initRevealAnimations(); // Initialize general reveal animations
-    addAnimationStyles();
+    initObservers(); // Initialize all scroll observers
   });
 
 })(jQuery);

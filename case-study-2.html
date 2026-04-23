@@ -86,16 +86,6 @@
   <!-- Header loaded via JavaScript -->
   <div id="header-container"></div>
 
-  <script>
-    // Load header component
-    fetch('components/header-casestudy.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading header:', error));
-  </script>
-
   <!-- BEGIN: HeroSection -->
   <section class="reveal bg-[#fdfcfb]" aria-labelledby="hero-title">
     <div class="max-w-7xl mx-auto py-8">
@@ -483,87 +473,15 @@
         </div>
       </div>
     </div>
-    <!-- bottom footer -->
-    <div class="py-12 px-6 bg-brand-navy text-white" role="contentinfo">
-      <div class="mx-auto px-6 max-w-7xl flex flex-col md:flex-row items-center justify-between">
-        <div class="mb-8 md:mb-0">
-          <h3 class="text-xl font-bold mb-3">Patricio Solé</h3>
-          <a class="text-slate-400 hover:text-white transition-colors flex items-center space-x-2 text-sm"
-            href="mailto:patriciosole.web@gmail.com">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-              </path>
-            </svg>
-            <span>patriciosole.web@gmail.com</span>
-          </a>
-        </div>
-
-        <div class="flex items-center space-x-8">
-          <!-- LinkedIn -->
-          <a class="flex items-center space-x-2 text-sm font-medium hover:text-brand-blue transition-colors group"
-            href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-            <div class="bg-slate-800 p-2 rounded-lg group-hover:bg-brand-blue transition-colors">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                </path>
-              </svg>
-            </div>
-            <span>LinkedIn</span>
-          </a>
-
-          <!-- Behance -->
-          <a class="flex items-center space-x-2 text-sm font-medium hover:text-brand-blue transition-colors group"
-            href="https://behance.net" target="_blank" rel="noopener noreferrer">
-            <div class="bg-slate-800 p-2 rounded-lg group-hover:bg-brand-blue transition-colors">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M7.5 11c1.5 0 2.3-.8 2.3-2s-.8-2-2.3-2h-4v4h4zm-4 2v5h4c1.5 0 2.5-1 2.5-2.5s-1-2.5-2.5-2.5h-4zm9-7h6v-1.5h-6v1.5zm3 4c-3 0-3.5 2.5-3.5 4s.5 4 3.5 4c2 0 3.5-1.5 3.5-3.5h-2.5c0 1-.5 1.5-1 1.5s-1-.5-1-1.5h4.5c0-2.5-.5-5-3.5-5z">
-                </path>
-              </svg>
-            </div>
-            <span>Behance</span>
-          </a>
-        </div>
-      </div>
-    </div>
   </footer>
   <!-- END: PaginationFooter -->
   <!-- Footer loaded via JavaScript -->
   <div id="footer-container"></div>
 
-  <script>
-    // Load footer component
-    fetch('components/footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('footer-container').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading footer:', error));
-  </script>
-
-  <!-- BEGIN: ScrollRevealScript -->
-  <script data-purpose="reveal-logic">
-    document.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        threshold: 0.1
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-      });
-    });
-  </script>
-  <!-- END: ScrollRevealScript -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Custom Scripts -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
