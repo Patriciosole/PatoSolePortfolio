@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Cyber · Caja sorpresa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --blue: #0757e8;
+            --navy: #0738b8;
+            --ink: #20252b;
+            --paper: #f4f7fb;
+            --line: #dce4ef
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        [hidden] {
+            display: none !important
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: "Montserrat", sans-serif;
+            background: transparent;
+            color: var(--ink)
+        }
+
+        body {
+            padding: 10px
+        }
+
+        button,
+        a {
+            font: inherit;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .app {
+            width: 100%;
+            max-width: 390px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 22px;
+            background: var(--paper);
+            box-shadow: 0 14px 42px #00144633
+        }
+
+        .top {
+            background: linear-gradient(145deg, var(--navy), #0876ff);
+            color: white;
+            padding: 20px 20px 23px;
+            text-align: center;
+            position: relative
+        }
+
+        .close {
+            position: absolute;
+            right: 11px;
+            top: 10px;
+            width: 34px;
+            height: 34px;
+            border: 1px solid #ffffff70;
+            border-radius: 50%;
+            background: #0002;
+            color: white;
+            font-size: 23px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            opacity: .9;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.04;
+            margin: 9px 0 7px;
+            letter-spacing: -.7px
+        }
+
+        .subtitle {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.4
+        }
+
+        .vip {
+            margin: 12px auto 0;
+            padding: 7px 10px;
+            max-width: 290px;
+            border-radius: 8px;
+            background: #ffdf4d;
+            color: #20252b;
+            font-weight: 800;
+            font-size: 12px
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center
+        }
+
+        .box-stage {
+            height: 164px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 700px;
+            margin-bottom: 12px;
+        }
+
+        .gift {
+            width: 126px;
+            height: 112px;
+            position: relative;
+            transform-origin: center bottom;
+            filter: drop-shadow(0 10px 8px #00257030)
+        }
+
+        .gift-body {
+            position: absolute;
+            bottom: 0;
+            left: 8px;
+            width: 110px;
+            height: 78px;
+            border-radius: 9px 9px 13px 13px;
+            background: linear-gradient(135deg, #ff476b, #d9184c);
+            border: 3px solid #ffffffa8
+        }
+
+        .gift-body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 42px;
+            width: 20px;
+            background: #ffdf4d
+        }
+
+        .gift-lid {
+            position: absolute;
+            top: 24px;
+            left: 0;
+            width: 126px;
+            height: 27px;
+            border-radius: 7px;
+            background: linear-gradient(#ff6580, #ef2456);
+            border: 3px solid #ffffffb8;
+            z-index: 2
+        }
+
+        .gift-lid:before {
+            content: "";
+            position: absolute;
+            left: 47px;
+            top: -5px;
+            width: 20px;
+            height: 25px;
+            background: #ffdf4d
+        }
+
+        .bow {
+            position: absolute;
+            top: -24px;
+            left: 60px;
+            width: 24px;
+            height: 24px;
+            border: 7px solid #ffdf4d;
+            border-radius: 80% 20% 80% 20%;
+            transform: rotate(-10deg);
+            z-index: 3
+        }
+
+        .bow:after {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: -27px;
+            width: 24px;
+            height: 24px;
+            border: 7px solid #ffdf4d;
+            border-radius: 20% 80% 20% 80%;
+            transform: rotate(18deg)
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ffca27;
+            font-size: 24px;
+            animation: twinkle 1.3s ease-in-out infinite alternate
+        }
+
+        .s1 {
+            left: 27px;
+            top: 20px
+        }
+
+        .s2 {
+            right: 28px;
+            top: 43px;
+            animation-delay: .45s
+        }
+
+        .s3 {
+            right: 52px;
+            top: 5px;
+            font-size: 17px;
+            animation-delay: .2s
+        }
+
+        .opening .gift {
+            animation: openBox .85s cubic-bezier(.2, .8, .2, 1) both
+        }
+
+        .opening .gift-lid {
+            animation: lidPop .85s ease-out both
+        }
+
+        .opening .sparkle {
+            animation: burst .85s ease-out both
+        }
+
+        @keyframes openBox {
+            0% {
+                transform: translateY(0)
+            }
+
+            25% {
+                transform: translateY(-9px) rotate(-5deg) scale(1.04)
+            }
+
+            50% {
+                transform: translateY(3px) rotate(4deg)
+            }
+
+            100% {
+                transform: translateY(-4px) scale(1.07)
+            }
+        }
+
+        @keyframes lidPop {
+
+            0%,
+            20% {
+                transform: translateY(0)
+            }
+
+            65% {
+                transform: translate(-8px, -31px) rotate(-18deg)
+            }
+
+            100% {
+                transform: translate(-5px, -24px) rotate(-13deg)
+            }
+        }
+
+        @keyframes burst {
+            0% {
+                opacity: 0;
+                transform: scale(.3)
+            }
+
+            55% {
+                opacity: 1;
+                transform: scale(1.4)
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .55;
+                transform: scale(.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.15)
+            }
+        }
+
+        .primary {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--blue);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            padding: 13px 18px;
+            box-shadow: 0 5px 0 #0344c4
+        }
+
+        .primary:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #0344c4
+        }
+
+        .result {
+            display: none;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            padding: 17px 14px 15px;
+            margin-top: 4px
+        }
+
+        .result.visible {
+            display: block;
+            animation: resultIn .4s ease-out both
+        }
+
+        @keyframes resultIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(.98)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        .result-icon {
+            font-size: 30px
+        }
+
+        .result h2 {
+            font-size: 21px;
+            margin: 9px 0 5px
+        }
+
+        .result p {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #526071;
+            margin: 12px 0 24px
+        }
+
+        .coupon {
+            display: inline-block;
+            padding: 9px 13px;
+            margin: 0 0 13px;
+            border: 1px dashed #0b63e5;
+            border-radius: 8px;
+            background: #edf5ff;
+            color: #0648bd;
+            font-weight: 900;
+            letter-spacing: 1px;
+            font-size: 16px
+        }
+
+        .secondary {
+            display: block;
+            width: 100%;
+            min-height: 46px;
+            border: 2px solid var(--blue);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 13px 10px
+        }
+
+        .close-bottom {
+            margin-top: 12px;
+            padding: 8px 12px;
+            border: 0;
+            background: transparent;
+            color: #667386;
+            font-size: 13px;
+            text-decoration: underline;
+            cursor: pointer
+        }
+
+        .fineprint {
+            color: #697586;
+            font-size: 11px;
+            line-height: 1.4;
+            margin: 24px 0 0
+        }
+
+        .footer {
+            background: #20252b;
+            color: #cbd1d9;
+            text-align: center;
+            font-size: 10px;
+            padding: 11px
+        }
+
+        @media(max-width:374px) {
+            body {
+                padding: 5px
+            }
+
+            .top {
+                padding: 17px 16px 20px
+            }
+
+            h1 {
+                font-size: 25px
+            }
+
+            .content {
+                padding: 17px 16px 19px
+            }
+        }
+
+        @media(prefers-color-scheme:dark) {
+            :root {
+                color-scheme: dark;
+                --paper: #171b22;
+                --ink: #f1f4f8;
+                --line: #394352;
+                --blue: #448cff
+            }
+
+            .app {
+                background: var(--paper);
+                box-shadow: 0 14px 42px #0007
+            }
+
+
+            .result {
+                background: #222833;
+                border-color: #3c4655
+            }
+
+            .result p {
+                color: #c2cad5
+            }
+
+            .coupon {
+                background: #102d52;
+                color: #c9e2ff;
+                border-color: #66a8ff
+            }
+
+            .secondary {
+                background: #171b22;
+                color: #82b4ff;
+                border-color: #448cff
+            }
+
+            .footer {
+                background: #101318
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *:before,
+            *:after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app" id="cyber-game">
+        <header class="top"><button class="close" id="close-top" type="button" aria-label="Cerrar mensaje">×</button>
+            <div class="eyebrow">CYBER · PREMIO SORPRESA</div>
+            <h1>¡ABRE TU CAJA<br>Y GANA!</h1>
+            <p class="subtitle" id="instruction">Toca el botón para abrir tu caja y descubre qué te llevas.</p>
+        </header>
+        <main class="content">
+            <div class="box-stage" id="box-stage" aria-hidden="true"><span class="sparkle s1">✦</span><span
+                    class="sparkle s2">✧</span><span class="sparkle s3">✦</span>
+                <div class="gift">
+                    <div class="gift-body"></div>
+                    <div class="gift-lid">
+                        <div class="bow"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="primary" type="button" id="play">Abrir mi caja</button>
+            <section class="result" id="result" aria-live="polite" aria-atomic="true">
+                <div class="result-icon" id="result-icon">🎉</div>
+                <h2 id="result-title">¡Tienes premio!</h2>
+                <p id="result-description"></p>
+                <div class="coupon" id="coupon" hidden></div><a class="secondary" id="redeem"
+                    href="paris://categoria/tecnologia?utm_source=braze&amp;utm_medium=app&amp;utm_campaign=cyber_game"
+                    hidden>Ir a la categoría</a>
+            </section>
+            <p class="fineprint">Premio sujeto a <a href="#">términos y condiciones</a>.</p>
+        </main>
+        <footer class="footer">¡Mucha suerte!</footer>
+    </div>
+
+    <script>
+        (function () {
+            "use strict";
+            const DEV_MODE = true; // Set false for production.
+            const DEV_SEGMENT = "vip"; // Use "nuevo", "frecuente", or "vip".
+            const VALID_SEGMENTS = ["nuevo", "frecuente", "vip"];
+            const segmentFromLiquid = "{{custom_attribute.${segmento_cliente}}}".trim().toLowerCase();
+            const requestedSegment = DEV_MODE ? DEV_SEGMENT.trim().toLowerCase() : segmentFromLiquid;
+            const CLIENT_SEGMENT = VALID_SEGMENTS.includes(requestedSegment) ? requestedSegment : "nuevo";
+            const IS_VIP = CLIENT_SEGMENT === "vip";
+            const BRIDGE_SIMULATION = true;  // Set false to enable real bridge calls.
+
+            const RESULTS = [
+                { id: "tech", weight: 20, title: "¡10% OFF en Tecnología!", description: "Tu próxima compra en tecnología tiene descuento.", coupon: "CYBERTEC10", icon: "⚡", url: "paris://categoria/tecnologia?utm_source=braze&amp;utm_medium=app&amp;utm_campaign=cyber_game", cta: "Ver Tecnología" },
+                { id: "shipping", weight: 30, title: "¡Ganaste despacho gratis!", description: "El envío va por nuestra cuenta.", coupon: "ENVIOGRATIS", icon: "🚚", url: "paris://cyber?utm_source=braze&amp;utm_medium=app&amp;utm_campaign=cyber_game", cta: "Ver ofertas del Cyber" },
+                { id: "cash", weight: 10, title: "¡Ganaste $5.000 de descuento!", description: "Un descuento para aprovechar el Cyber.", coupon: "CYBER5000", icon: "🎁", url: "paris://cyber?utm_source=braze&amp;utm_medium=app&amp;utm_campaign=cyber_game", cta: "Ver ofertas del Cyber" },
+                { id: "try_again", weight: 40, title: "¡Sigue participando!", description: "Esta vez no hay premio. ¡Pero puedes aprovechar las ofertas del Cyber que tenemos para ti!", coupon: null, icon: "🍀", url: "paris://cyber", cta: "Ver ofertas" }
+            ];
+
+            const $ = id => document.getElementById(id); let hasPlayed = false, currentResult = null;
+
+            function addUtm(url) {
+                return url + (url.includes("?") ? "&" : "?") + "utm_source=braze&utm_medium=email&utm_campaign=cyber_apertura";
+            }
+
+            function logClick(name) {
+                if (BRIDGE_SIMULATION || !window.brazeBridge) {
+                    console.info("[Braze simulation] logClick", name);
+                    return;
+                }/* window.brazeBridge.logClick(name); */
+            }
+            function logResult(r) {
+                const props = { result_id: r.id, prize_title: r.title, coupon: r.coupon || "", segmento_cliente: CLIENT_SEGMENT, is_vip: IS_VIP, game: "cyber_surprise_box" };
+                if (BRIDGE_SIMULATION || !window.brazeBridge) {
+                    console.info("[Braze simulation] cyber_game_result", props);
+                    return;
+                } /* window.brazeBridge.logCustomEvent("cyber_game_result",props); */
+            }
+            function closeMessage() {
+                logClick("close_cyber_game"); $("cyber-game").hidden = true;
+                if (BRIDGE_SIMULATION || !window.brazeBridge) {
+                    console.info("[Braze simulation] closeMessage");
+                    return;
+                }
+                window.brazeBridge.closeMessage();
+            }
+            function chooseResult() {
+                const pool = IS_VIP ? RESULTS.filter(r => r.id !== "try_again") : RESULTS; const total = pool.reduce((s, r) => s + r.weight, 0);
+                let n = Math.random() * total;
+                for (const r of pool) { n -= r.weight; if (n < 0) return r; }
+                return pool[pool.length - 1];
+            }
+            function showResult(r) {
+                currentResult = r;
+                $("result-icon").textContent = r.icon;
+                $("result-title").textContent = r.title;
+                $("result-description").textContent = r.description;
+                $("coupon").hidden = !r.coupon;
+                $("coupon").textContent = r.coupon || "";
+                $("redeem").hidden = false;
+                $("redeem").textContent = r.cta;
+                $("redeem").href = addUtm(r.url);
+                $("result").classList.add("visible");
+                $("box-stage").hidden = true;
+                $("play").hidden = true;
+                $("instruction").hidden = true;
+                logResult(r);
+            }
+            $("play").addEventListener("click", function () {
+                if (hasPlayed) return;
+                hasPlayed = true;
+                logClick("play_cyber_game");
+                $("play").disabled = true;
+                $("play").textContent = "Abriendo tu caja…";
+                $("box-stage").classList.add("opening");
+                const result = chooseResult();
+                window.setTimeout(() => showResult(result), 850);
+            });
+            $("redeem").addEventListener("click", () => logClick("redeem_" + (currentResult ? currentResult.id : "unknown")));
+            $("close-top").addEventListener("click", closeMessage);
+            $("close-bottom").addEventListener("click", closeMessage);
+        })();
+    </script>
+</body>
+
+</html>
