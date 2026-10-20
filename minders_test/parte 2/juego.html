@@ -226,15 +226,18 @@
             animation-delay: .2s
         }
 
-        .opening .gift {
+        .opening .gift,
+        .hovering .gift {
             animation: openBox .85s cubic-bezier(.2, .8, .2, 1) both
         }
 
-        .opening .gift-lid {
+        .opening .gift-lid,
+        .hovering .gift-lid {
             animation: lidPop .85s ease-out both
         }
 
-        .opening .sparkle {
+        .opening .sparkle,
+        .hovering .sparkle {
             animation: burst .85s ease-out both
         }
 
@@ -585,13 +588,21 @@
                 $("instruction").hidden = true;
                 logResult(r);
             }
+            const boxStage = $("box-stage");
+            const previewTargets = [boxStage.querySelector(".gift"), $("play")];
+            previewTargets.forEach(target => {
+                target.addEventListener("mouseenter", () => {
+                    if (!hasPlayed) boxStage.classList.add("hovering");
+                });
+                target.addEventListener("mouseleave", () => boxStage.classList.remove("hovering"));
+            });
             $("play").addEventListener("click", function () {
                 if (hasPlayed) return;
                 hasPlayed = true;
                 logClick("play_cyber_game");
                 $("play").disabled = true;
                 $("play").textContent = "Abriendo tu caja…";
-                $("box-stage").classList.add("opening");
+                boxStage.classList.add("opening");
                 const result = chooseResult();
                 window.setTimeout(() => showResult(result), 850);
             });
