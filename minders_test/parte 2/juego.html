@@ -539,7 +539,9 @@
                 { id: "try_again", weight: 40, title: "¡Sigue participando!", description: "Esta vez no hay premio. ¡Pero puedes aprovechar las ofertas del Cyber que tenemos para ti!", coupon: null, icon: "🍀", url: "paris://cyber", cta: "Ver ofertas" }
             ];
 
-            const $ = id => document.getElementById(id); let hasPlayed = false, currentResult = null;
+            const $ = id => document.getElementById(id);
+
+            let hasPlayed = false, currentResult = null;
 
             function addUtm(url) {
                 return url + (url.includes("?") ? "&" : "?") + "utm_source=braze&utm_medium=email&utm_campaign=cyber_apertura";
