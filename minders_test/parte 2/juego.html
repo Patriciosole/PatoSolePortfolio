@@ -553,6 +553,7 @@
                     return;
                 }/* window.brazeBridge.logClick(name); */
             }
+
             function logResult(r) {
                 const props = { result_id: r.id, prize_title: r.title, coupon: r.coupon || "", segmento_cliente: CLIENT_SEGMENT, is_vip: IS_VIP, game: "cyber_surprise_box" };
                 if (BRIDGE_SIMULATION || !window.brazeBridge) {
@@ -560,6 +561,7 @@
                     return;
                 } /* window.brazeBridge.logCustomEvent("cyber_game_result",props); */
             }
+
             function closeMessage() {
                 logClick("close_cyber_game"); $("cyber-game").hidden = true;
                 if (BRIDGE_SIMULATION || !window.brazeBridge) {
@@ -568,12 +570,14 @@
                 }
                 window.brazeBridge.closeMessage();
             }
+
             function chooseResult() {
                 const pool = IS_VIP ? RESULTS.filter(r => r.id !== "try_again") : RESULTS; const total = pool.reduce((s, r) => s + r.weight, 0);
                 let n = Math.random() * total;
                 for (const r of pool) { n -= r.weight; if (n < 0) return r; }
                 return pool[pool.length - 1];
-            }
+            } // mathematical randomness. God help us all
+
             function showResult(r) {
                 currentResult = r;
                 $("result-icon").textContent = r.icon;
@@ -592,12 +596,15 @@
             }
             const boxStage = $("box-stage");
             const previewTargets = [boxStage.querySelector(".gift"), $("play")];
+
+            // Box annimation
             previewTargets.forEach(target => {
                 target.addEventListener("mouseenter", () => {
                     if (!hasPlayed) boxStage.classList.add("hovering");
                 });
                 target.addEventListener("mouseleave", () => boxStage.classList.remove("hovering"));
             });
+
             $("play").addEventListener("click", function () {
                 if (hasPlayed) return;
                 hasPlayed = true;
@@ -608,7 +615,9 @@
                 const result = chooseResult();
                 window.setTimeout(() => showResult(result), 850);
             });
+
             $("redeem").addEventListener("click", () => logClick("redeem_" + (currentResult ? currentResult.id : "unknown")));
+
             $("close-top").addEventListener("click", closeMessage);
         })();
     </script>
