@@ -543,9 +543,9 @@
 
             let hasPlayed = false, currentResult = null;
 
-            function addUtm(url) {
-                return url + (url.includes("?") ? "&" : "?") + "utm_source=braze&utm_medium=email&utm_campaign=cyber_apertura";
-            }
+            // function addUtm(url) {
+            //     return url + (url.includes("?") ? "&" : "?") + "utm_source=braze&utm_medium=email&utm_campaign=cyber_apertura";
+            // }
 
             function logClick(name) {
                 if (BRIDGE_SIMULATION || !window.brazeBridge) {
@@ -583,7 +583,7 @@
                 $("coupon").textContent = r.coupon || "";
                 $("redeem").hidden = false;
                 $("redeem").textContent = r.cta;
-                $("redeem").href = addUtm(r.url);
+                //$("redeem").href = addUtm(r.url);
                 $("result").classList.add("visible");
                 $("box-stage").hidden = true;
                 $("play").hidden = true;
